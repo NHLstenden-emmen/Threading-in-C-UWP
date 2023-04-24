@@ -9,7 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <NavigationView x:ConnectionId='2' x:Name="NavigationView" PaneDisplayMode="Top" >
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:ConnectionId='3' Content="A" x:Name="A" />
+                <NavigationViewItem x:ConnectionId='4' Content="B" x:Name="B" />
+                <NavigationViewItem x:ConnectionId='5' Content="C" x:Name="C" />
+            </NavigationView.MenuItems>
+        </NavigationView>
     </Grid>
 </Page>
 

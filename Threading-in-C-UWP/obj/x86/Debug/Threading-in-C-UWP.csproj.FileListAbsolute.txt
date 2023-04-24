@@ -43,3 +43,8 @@ D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\qualif
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\ProjectArchitectures.txt
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637934986560000000.json
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\LootScreenForm.g.i.cs
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\LootScreenForm.g.cs
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\LootScreenForm.xaml
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\LootScreenForm.xbf
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\LootScreenForm.xbf
