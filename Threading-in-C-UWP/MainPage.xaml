@@ -9,12 +9,20 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <NavigationView x:Name="NavigationView" PaneDisplayMode="Top" >
+        <NavigationView 
+            x:Name="NavigationView" 
+            PaneDisplayMode="Top" 
+            IsBackButtonVisible="Collapsed"
+            ItemInvoked="NavView_ItemInvoked">
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="A" x:Name="A" />
-                <NavigationViewItem Content="B" x:Name="B" />
-                <NavigationViewItem Content="C" x:Name="C" />
+                <NavigationViewItem Tag="Home" Content="Home" x:Name="Home" />
+                <NavigationViewItem Tag="Players" Content="Players" x:Name="Players" />
+                <NavigationViewItem Tag="Map" Content="Map" x:Name="Map" />
             </NavigationView.MenuItems>
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+                   NavigationFailed="ContentFrame_NavigationFailed"/>
+            </ScrollViewer>
         </NavigationView>
     </Grid>
 </Page>

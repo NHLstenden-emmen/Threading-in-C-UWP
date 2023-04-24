@@ -9,8 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBox HorizontalAlignment="Center" Margin="0,478,0,0" TextWrapping="Wrap" Text="LootScreenForm" VerticalAlignment="Top" Height="34"/>
-
+        <Button Content="Generate"  VerticalAlignment="Top" Margin="10,100,0,0"/>
+        <ListBox x:ConnectionId='2' Margin="10,150,0,0" x:Name="SavedItemsListBox"/>
     </Grid>
 </Page>
 
