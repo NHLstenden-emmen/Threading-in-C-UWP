@@ -85,6 +85,9 @@
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\PlayerScreenForm.xbf">
       <PackagePath>Forms\PlayerScreenForm.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\SettingsScreenForm.xbf">
+      <PackagePath>Forms\SettingsScreenForm.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>

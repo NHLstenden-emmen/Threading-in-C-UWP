@@ -9,7 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Generate"  VerticalAlignment="Top" Margin="10,100,0,0"/>
-        <ListBox Margin="10,150,0,0" x:Name="SavedItemsListBox"/>
+        <Button Content="Generate"  VerticalAlignment="Top" Margin="458,34,0,0" Click="GenerateItemButton_Click"/>
+        <TextBox x:Name="AmountOfItems" HorizontalAlignment="Left" Margin="550,34,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+        <ListBox Margin="10,100,10,10" x:Name="SavedItemsListBox"/>
     </Grid>
 </Page>

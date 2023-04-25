@@ -30,16 +30,10 @@ namespace Threading_in_C_UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //private void onFormClosed(object sender, EventArgs e)
-        //{
-        //    if (Application.== 0)
-        //    {
-        //    }
-        //}
         public MainPage()
         {
             this.InitializeComponent();
-            ApplicationView.PreferredLaunchViewSize = new Size(1280, 800);
+            ApplicationView.PreferredLaunchViewSize = new Size(960, 1080);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             StartPlayerboard();
         }
@@ -78,7 +72,7 @@ namespace Threading_in_C_UWP
             Type _page = null;
             if (navItemTag == "settings")
             {
-                //_page = typeof(SettingsPage);
+                _page = typeof(SettingsScreenForm);
             }
             else
             {
@@ -98,18 +92,12 @@ namespace Threading_in_C_UWP
 
         private async void StartPlayerboard()
         {
-            AppWindow appWindow = await AppWindow.TryCreateAsync();
-            Frame appWindowContentFrame = new Frame();
-            appWindowContentFrame.Navigate(typeof(PlayerBoard));
-            ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
-            appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
-            await appWindow.TryShowAsync();
+            //AppWindow appWindow = await AppWindow.TryCreateAsync();
+            //Frame appWindowContentFrame = new Frame();
+            //appWindowContentFrame.Navigate(typeof(PlayerBoard));
+            //ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
+            //appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
+            //await appWindow.TryShowAsync();
         }
-
-        //private IAsyncAction ExecuteOnUIThread(DispatchedHandler action)
-        //{
-        //    //return Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, action);
-        //    return Windows.ApplicationModel.Core.CoreApplication.Views
-        //}
     }
 }
