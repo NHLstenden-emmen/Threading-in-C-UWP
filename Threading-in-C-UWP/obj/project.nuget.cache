@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "e8tQLgkLyEqNwwg7NLwBPodZ5tYropx31czdHCfY608Z8UgmoVZamFwFVt/fmbIlwEr+ioFnODpNJR9gWNVSSQ==",
+  "dgSpecHash": "Rb4eMZWJfPqp3PazjdEm++vMGEHrAqZHnEtmGcs2/+y6Hfmbd4KYWvRbagtqcghMvEAva8GbameRiLeDDIpl2g==",
   "success": true,
   "projectFilePath": "D:\\Programming\\Github\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\simch\\.nuget\\packages\\microsoft.data.sqlite\\7.0.5\\microsoft.data.sqlite.7.0.5.nupkg.sha512",
+    "C:\\Users\\simch\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.5\\microsoft.data.sqlite.core.7.0.5.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.12-rel-31116-00\\microsoft.net.native.compiler.2.2.12-rel-31116-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.14\\microsoft.net.uwpcoreruntimesdk.2.2.14.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
@@ -27,7 +29,13 @@
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win10-x86.microsoft.net.native.compiler\\2.2.12-rel-31116-00\\runtime.win10-x86.microsoft.net.native.compiler.2.2.12-rel-31116-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win10-x86.microsoft.net.native.sharedlibrary\\2.2.8-rel-31116-00\\runtime.win10-x86.microsoft.net.native.sharedlibrary.2.2.8-rel-31116-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\\2.2.14\\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk.2.2.14.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\\6.2.14\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform.6.2.14.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\\6.2.14\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform.6.2.14.nupkg.sha512",
+    "C:\\Users\\simch\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.4\\sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
+    "C:\\Users\\simch\\.nuget\\packages\\sqlitepclraw.core\\2.1.4\\sqlitepclraw.core.2.1.4.nupkg.sha512",
+    "C:\\Users\\simch\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.4\\sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
+    "C:\\Users\\simch\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.4\\sqlitepclraw.provider.e_sqlite3.2.1.4.nupkg.sha512",
+    "C:\\Users\\simch\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\simch\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
   ],
   "logs": []
 }

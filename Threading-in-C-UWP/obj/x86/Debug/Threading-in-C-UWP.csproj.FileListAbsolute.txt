@@ -68,3 +68,17 @@ D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\SettingsScreenForm.g.cs
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\SettingsScreenForm.xaml
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\SettingsScreenForm.xbf
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\DisplayLootScreenForm.g.i.cs
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\DisplayLootScreenForm.g.cs
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\DisplayLootScreenForm.xaml
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\DisplayLootScreenForm.xbf
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\DisplayLootScreenForm.xbf
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Newtonsoft.Json.dll
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Datasets\DungeonDB.mdf
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Microsoft.Data.Sqlite.dll
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\SQLitePCLRaw.batteries_v2.dll
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\SQLitePCLRaw.core.dll
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\e_sqlite3.dll
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Microsoft.Data.Sqlite\en-US\Microsoft.Data.Sqlite.Properties.Resources.resw

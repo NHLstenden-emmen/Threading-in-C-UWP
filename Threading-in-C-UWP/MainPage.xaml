@@ -18,6 +18,9 @@
                 <NavigationViewItem Tag="Home" Content="Home" x:Name="Home" />
                 <NavigationViewItem Tag="Players" Content="Players" x:Name="Players" />
                 <NavigationViewItem Tag="Map" Content="Map" x:Name="Map" />
+                <NavigationViewItem Tag="Monsters" Content="Monsters" x:Name="Monsters" />
+                <NavigationViewItem Tag="NPC" Content="NPC's" x:Name="NPC" />
+                <NavigationViewItem Tag="Loot" Content="Loot" x:Name="Loot" />
             </NavigationView.MenuItems>
             <ScrollViewer>
                 <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"

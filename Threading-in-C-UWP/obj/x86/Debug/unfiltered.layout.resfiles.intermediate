@@ -9,10 +9,12 @@ Assets\tempLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 Board\PlayerBoard.xbf
+Forms\DisplayLootScreenForm.xbf
 Forms\Home.xbf
 Forms\LootScreenForm.xbf
 Forms\PlayerScreenForm.xbf
 Forms\SettingsScreenForm.xbf
 MainPage.xbf
 Threading-in-C-UWP.xr.xml
+Datasets\DungeonDB.mdf
 Properties\Default.rd.xml

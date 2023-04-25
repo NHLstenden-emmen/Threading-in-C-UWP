@@ -5,6 +5,7 @@ using System.Linq;
 using Threading_in_C_UWP.Equipment;
 using Threading_in_C_UWP.OpenFiveApi;
 using Newtonsoft.Json.Linq;
+using Microsoft.Data.Sqlite;
 
 namespace Threading_in_C_UWP.ApiGenerators
 {
@@ -163,7 +164,7 @@ namespace Threading_in_C_UWP.ApiGenerators
             string insertSql = "INSERT INTO [dbo].[Items] ([Name], [Type], [Rarity], [Value], [Description], [Properties], [Drawbacks], [Requirements], [History]) " +
                    "VALUES (@Name, @Type, @Rarity, @Value, @Description, @Properties, @Drawbacks, @Requirements, @History)";
 
-            using (SqlCommand command = new SqlCommand(insertSql, OpenFiveApiRequest.con))
+            using (SqliteCommand command = new SqliteCommand(insertSql, OpenFiveApiRequest.con))
             {
                 command.Connection = OpenFiveApiRequest.con;
 
@@ -181,7 +182,7 @@ namespace Threading_in_C_UWP.ApiGenerators
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (SqlException ex)
+                catch (SqliteException ex)
                 {
                     Console.WriteLine("An error occurred while inserting data: " + ex.Message);
                 }

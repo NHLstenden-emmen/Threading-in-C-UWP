@@ -116,14 +116,27 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ApiGenerators\ApiEnemyGenerator.cs" />
     <Compile Include="ApiGenerators\ApiItemGenerator.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Board\Placeable\Entities\Character.cs" />
+    <Compile Include="Board\Placeable\Entities\Enemy.cs" />
+    <Compile Include="Board\Placeable\Entities\Entity.cs" />
+    <Compile Include="Board\Placeable\Entities\NPC.cs" />
+    <Compile Include="Board\Placeable\Entities\Player.cs" />
+    <Compile Include="Board\Placeable\InMovable.cs" />
+    <Compile Include="Board\Placeable\Moveable.cs" />
+    <Compile Include="Board\Placeable\Obstacle.cs" />
+    <Compile Include="Board\Placeable\Placable.cs" />
     <Compile Include="Board\PlayerBoard.xaml.cs">
       <DependentUpon>PlayerBoard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Equipment\Item.cs" />
+    <Compile Include="Forms\DisplayLootScreenForm.xaml.cs">
+      <DependentUpon>DisplayLootScreenForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -150,6 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\tempLogo.png" />
+    <Content Include="Datasets\DungeonDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -165,6 +181,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Board\PlayerBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DisplayLootScreenForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +210,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite">
+      <Version>7.0.5</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
@@ -197,9 +220,7 @@
       <Version>13.0.3</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Board\Placeable\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

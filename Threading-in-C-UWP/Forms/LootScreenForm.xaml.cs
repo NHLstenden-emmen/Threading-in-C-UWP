@@ -1,22 +1,13 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using Threading_in_C_UWP.ApiGenerators;
 using Threading_in_C_UWP.Equipment;
 using Threading_in_C_UWP.OpenFiveApi;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -48,9 +39,9 @@ namespace Threading_in_C_UWP.Forms
             SavedItemsListBox.Items.Clear();
 
             string retrieveSQL = "SELECT * FROM Items";
-            using (SqlCommand command = new SqlCommand(retrieveSQL, OpenFiveApiRequest.con))
+            using (SqliteCommand command = new SqliteCommand(retrieveSQL, OpenFiveApiRequest.con))
             {
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -111,9 +102,8 @@ namespace Threading_in_C_UWP.Forms
             AddItemsToList();
         }
 
-        private void GenerateItemButton_Click(object sender, EventArgs e)
+        private void GenerateItemButton_Click(object sender, RoutedEventArgs e)
         {
-            
             CreateThreads(Int32.Parse(AmountOfItems.Text));
             CleanupThreads();
         }
@@ -126,10 +116,10 @@ namespace Threading_in_C_UWP.Forms
             {
                 OpenFiveApiRequest.con.Open();
                 string retrieveSQL = "SELECT * FROM Items WHERE Name = @ItemName";
-                using (SqlCommand command = new SqlCommand(retrieveSQL, OpenFiveApiRequest.con))
+                using (SqliteCommand command = new SqliteCommand(retrieveSQL, OpenFiveApiRequest.con))
                 {
                     command.Parameters.AddWithValue("@ItemName", ItemName);
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqliteDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {
@@ -221,7 +211,7 @@ namespace Threading_in_C_UWP.Forms
         private void DeleteItem_Click(object sender, EventArgs e)
         {
             string deleteSQL = "DELETE FROM Items";
-            using (SqlCommand command = new SqlCommand(deleteSQL, OpenFiveApiRequest.con))
+            using (SqliteCommand command = new SqliteCommand(deleteSQL, OpenFiveApiRequest.con))
             {
                 OpenFiveApiRequest.con.Open();
                 command.ExecuteNonQuery();
@@ -241,6 +231,11 @@ namespace Threading_in_C_UWP.Forms
             //point.Y += 256;
             //displayLootScreenForm.Location = point;
 
+        }
+
+        private void SavedItemsListBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            int index = this.SavedItemsListBox.SelectedIndex;
         }
     }
 }

@@ -9,6 +9,7 @@ using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Forms;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.WindowManagement;
@@ -47,8 +48,9 @@ namespace Threading_in_C_UWP
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
             ("Home", typeof(Home)),
-            ("Players", typeof(LootScreenForm)),
-            ("Map", typeof(PlayerScreenForm))
+            ("Players", typeof(PlayerScreenForm)),
+            ("Map", typeof(PlayerScreenForm)),
+            ("Loot", typeof(LootScreenForm))
         };
 
         private void NavView_ItemInvoked(NavigationView sender,
