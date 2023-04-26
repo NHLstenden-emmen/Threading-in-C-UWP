@@ -12,6 +12,9 @@ Board\PlayerBoard.xbf
 Forms\DisplayLootScreenForm.xbf
 Forms\Home.xbf
 Forms\LootScreenForm.xbf
+Forms\MapScreenForm.xbf
+Forms\MonstersScreenForm.xbf
+Forms\NpcScreenForm.xbf
 Forms\PlayerScreenForm.xbf
 Forms\SettingsScreenForm.xbf
 MainPage.xbf

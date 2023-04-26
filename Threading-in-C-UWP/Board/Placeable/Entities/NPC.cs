@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Threading_in_C_UWP.Board.Placeable.Entities
+namespace Threading_in_C_UWP.Players
 {
     internal class NPC : Character
     {

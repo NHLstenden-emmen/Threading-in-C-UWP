@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Threading_in_C_UWP.Board.Placeable.Entities
+namespace Threading_in_C_UWP.Players
 {
     public class Enemy : Entity
     {

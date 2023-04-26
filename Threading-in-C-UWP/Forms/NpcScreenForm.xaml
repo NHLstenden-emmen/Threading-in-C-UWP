@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="Threading_in_C_UWP.Forms.NpcScreenForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Threading_in_C_UWP.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button Content="Delete All"  VerticalAlignment="Top" Margin="302,37,0,0" Click="DeleteNPC_Click" RenderTransformOrigin="0.931,0.547"/>
+        <Button Content="Generate"  VerticalAlignment="Top" Margin="0,37,0,0" Click="GenerateNPCButton_Click" HorizontalAlignment="Center"/>
+        <TextBox x:Name="AmountOfNPCs" HorizontalAlignment="Left" Margin="579,37,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+        <ListBox Margin="10,100,10,10" x:Name="SavedNpcsListBox" DoubleTapped="SavedNPCsListBox_DoubleTapped"/>
+    </Grid>
+</Page>

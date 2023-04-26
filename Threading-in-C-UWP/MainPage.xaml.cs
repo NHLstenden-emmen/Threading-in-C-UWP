@@ -31,8 +31,12 @@ namespace Threading_in_C_UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private int turnCounter;
+        public static MainPage Instance { get; private set; }
         public MainPage()
         {
+            turnCounter= 0;
+            Instance= this;
             this.InitializeComponent();
             ApplicationView.PreferredLaunchViewSize = new Size(960, 1080);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
@@ -49,8 +53,11 @@ namespace Threading_in_C_UWP
         {
             ("Home", typeof(Home)),
             ("Players", typeof(PlayerScreenForm)),
-            ("Map", typeof(PlayerScreenForm)),
-            ("Loot", typeof(LootScreenForm))
+            ("Map", typeof(MapScreenForm)),
+            ("NPC", typeof(NpcScreenForm)),
+            ("Monsters", typeof(MonstersScreenForm)),
+            ("Loot", typeof(LootScreenForm)),
+            ("settings", typeof(SettingsScreenForm))
         };
 
         private void NavView_ItemInvoked(NavigationView sender,
@@ -72,9 +79,9 @@ namespace Threading_in_C_UWP
             Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo transitionInfo)
         {
             Type _page = null;
-            if (navItemTag == "settings")
+            if (navItemTag == "TurnCounter")
             {
-                _page = typeof(SettingsScreenForm);
+                AddTurn();
             }
             else
             {
@@ -88,7 +95,10 @@ namespace Threading_in_C_UWP
             // Only navigate if the selected page isn't currently loaded.
             if (!(_page is null) && !Type.Equals(preNavPageType, _page))
             {
-                ContentFrame.Navigate(_page, null, transitionInfo);
+                if (_page == typeof(SettingsScreenForm))
+                {
+                    ContentFrame.Navigate(_page, this, transitionInfo);
+                }
             }
         }
 
@@ -100,6 +110,18 @@ namespace Threading_in_C_UWP
             ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
             appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
             await appWindow.TryShowAsync();
+        }
+
+        private void AddTurn()
+        {
+            turnCounter++;
+            TurnCounter.Content = turnCounter.ToString();
+        }
+
+        internal void ResetTurnCounter()
+        {
+            turnCounter = 0;
+            TurnCounter.Content = turnCounter.ToString();
         }
     }
 }

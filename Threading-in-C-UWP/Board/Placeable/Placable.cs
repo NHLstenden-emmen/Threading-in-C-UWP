@@ -1,7 +1,7 @@
 ﻿using System.Xml.Serialization;
-using Threading_in_C_UWP.Board.Placeable.Entities;
+using Threading_in_C_UWP.Players;
 
-namespace Threading_in_C_UWP.Board.Placeable
+namespace Threading_in_C_UWP.Board.placeable
 {
     [XmlInclude(typeof(Player))]
     [XmlInclude(typeof(Obstacle))]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Threading_in_C_UWP.Board;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,7 +25,32 @@ namespace Threading_in_C_UWP.Forms
     {
         public SettingsScreenForm()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+        }
+
+        private void btnResetTurnCounter_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.Instance.ResetTurnCounter();
+        }
+
+        private void ImportGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            //openFileDialog1.InitialDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, "../../Resources/XML"));
+            //openFileDialog1.Title = "Import Game";
+            //openFileDialog1.DefaultExt = "xml";
+            //openFileDialog1.Filter = "XML files (*.xml)|*.xml";
+            //openFileDialog1.CheckFileExists = true;
+            //openFileDialog1.CheckPathExists = true;
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    PlayerBoard.instance.importBoard(openFileDialog1.FileName);
+            //}
+        }
+
+        private void ExportGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerBoard.instance.exportBoard();
         }
     }
 }

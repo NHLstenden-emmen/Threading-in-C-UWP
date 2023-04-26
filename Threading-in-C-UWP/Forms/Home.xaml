@@ -10,6 +10,5 @@
 
     <Grid>
         <Image HorizontalAlignment="Center" Height="100" Margin="0,144,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/tempLogo.png"/>
-
     </Grid>
 </Page>

@@ -16,14 +16,15 @@
                                              >
             <NavigationView.MenuItems>
                 <NavigationViewItem x:ConnectionId='3' Tag="Home" Content="Home" x:Name="Home" />
-                <NavigationViewItem x:ConnectionId='4' Tag="Players" Content="Players" x:Name="Players" />
-                <NavigationViewItem x:ConnectionId='5' Tag="Map" Content="Map" x:Name="Map" />
-                <NavigationViewItem x:ConnectionId='6' Tag="Monsters" Content="Monsters" x:Name="Monsters" />
-                <NavigationViewItem x:ConnectionId='7' Tag="NPC" Content="NPC's" x:Name="NPC" />
-                <NavigationViewItem x:ConnectionId='8' Tag="Loot" Content="Loot" x:Name="Loot" />
+                <NavigationViewItem x:ConnectionId='4' Tag="TurnCounter" Content="0" x:Name="TurnCounter" />
+                <NavigationViewItem x:ConnectionId='5' Tag="Players" Content="Players" x:Name="Players" />
+                <NavigationViewItem x:ConnectionId='6' Tag="Map" Content="Map" x:Name="Map" />
+                <NavigationViewItem x:ConnectionId='7' Tag="Monsters" Content="Monsters" x:Name="Monsters" />
+                <NavigationViewItem x:ConnectionId='8' Tag="NPC" Content="NPC's" x:Name="NPC" />
+                <NavigationViewItem x:ConnectionId='9' Tag="Loot" Content="Loot" x:Name="Loot" />
             </NavigationView.MenuItems>
             <ScrollViewer>
-                <Frame x:ConnectionId='9' x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+                <Frame x:ConnectionId='10' x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
                                                                    />
             </ScrollViewer>
         </NavigationView>

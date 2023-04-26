@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace Threading_in_C_UWP.Board.Placeable
+namespace Threading_in_C_UWP.Board.placeable
 {
     public class Obstacle : InMovable
     {

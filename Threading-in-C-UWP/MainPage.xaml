@@ -16,6 +16,7 @@
             ItemInvoked="NavView_ItemInvoked">
             <NavigationView.MenuItems>
                 <NavigationViewItem Tag="Home" Content="Home" x:Name="Home" />
+                <NavigationViewItem Tag="TurnCounter" Content="0" x:Name="TurnCounter" />
                 <NavigationViewItem Tag="Players" Content="Players" x:Name="Players" />
                 <NavigationViewItem Tag="Map" Content="Map" x:Name="Map" />
                 <NavigationViewItem Tag="Monsters" Content="Monsters" x:Name="Monsters" />

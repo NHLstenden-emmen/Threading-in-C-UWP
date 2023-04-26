@@ -118,21 +118,26 @@
   <ItemGroup>
     <Compile Include="ApiGenerators\ApiEnemyGenerator.cs" />
     <Compile Include="ApiGenerators\ApiItemGenerator.cs" />
+    <Compile Include="ApiGenerators\ApiNpcGenerator.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Board\Placeable\Entities\Character.cs" />
-    <Compile Include="Board\Placeable\Entities\Enemy.cs" />
-    <Compile Include="Board\Placeable\Entities\Entity.cs" />
-    <Compile Include="Board\Placeable\Entities\NPC.cs" />
-    <Compile Include="Board\Placeable\Entities\Player.cs" />
-    <Compile Include="Board\Placeable\InMovable.cs" />
-    <Compile Include="Board\Placeable\Moveable.cs" />
-    <Compile Include="Board\Placeable\Obstacle.cs" />
-    <Compile Include="Board\Placeable\Placable.cs" />
+    <Compile Include="Board\placeable\Entities\Character.cs" />
+    <Compile Include="Board\placeable\Entities\Enemy.cs" />
+    <Compile Include="Board\placeable\Entities\Entity.cs" />
+    <Compile Include="Board\placeable\Entities\NPC.cs" />
+    <Compile Include="Board\placeable\Entities\Player.cs" />
+    <Compile Include="Board\placeable\InMovable.cs" />
+    <Compile Include="Board\placeable\Moveable.cs" />
+    <Compile Include="Board\placeable\Obstacle.cs" />
+    <Compile Include="Board\placeable\Placable.cs" />
     <Compile Include="Board\PlayerBoard.xaml.cs">
       <DependentUpon>PlayerBoard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Board\Rooms.cs" />
+    <Compile Include="Board\Tile.cs" />
+    <Compile Include="Converters\EntityConverter.cs" />
+    <Compile Include="Converters\TileConverter.cs" />
     <Compile Include="Equipment\Item.cs" />
     <Compile Include="Forms\DisplayLootScreenForm.xaml.cs">
       <DependentUpon>DisplayLootScreenForm.xaml</DependentUpon>
@@ -142,6 +147,15 @@
     </Compile>
     <Compile Include="Forms\LootScreenForm.xaml.cs">
       <DependentUpon>LootScreenForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MapScreenForm.xaml.cs">
+      <DependentUpon>MapScreenForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MonstersScreenForm.xaml.cs">
+      <DependentUpon>MonstersScreenForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NpcScreenForm.xaml.cs">
+      <DependentUpon>NpcScreenForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\PlayerScreenForm.xaml.cs">
       <DependentUpon>PlayerScreenForm.xaml</DependentUpon>
@@ -193,6 +207,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\LootScreenForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\MapScreenForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\MonstersScreenForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\NpcScreenForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

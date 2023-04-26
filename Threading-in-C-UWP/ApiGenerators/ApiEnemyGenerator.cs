@@ -1,10 +1,9 @@
 ﻿using Microsoft.Data.Sqlite;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using Threading_in_C_UWP.Board.Placeable.Entities;
 using Threading_in_C_UWP.OpenFiveApi;
+using Threading_in_C_UWP.Players;
 
 namespace Threading_in_C_UWP.ApiGenerators
 {
@@ -12,9 +11,8 @@ namespace Threading_in_C_UWP.ApiGenerators
     {
         public ApiEnemyGenerator()
         {
-
             OpenFiveApiRequest.con.Open();
-            String CreateTableSql = "CREATE TABLE IF NOT EXISTS Enemy (" +
+            String CreateTableSql = "CREATE TABLE IF NOT EXISTS Enemies (" +
                 "Name            NVARCHAR (20) PRIMARY KEY," +
                 "Health          INT           DEFAULT ((0)) NOT NULL," +
                 "Movement        INT           DEFAULT ((0)) NOT NULL," +
@@ -83,7 +81,7 @@ namespace Threading_in_C_UWP.ApiGenerators
         {
             OpenFiveApiRequest.con.Open();
 
-            string insertSql = "INSERT INTO [dbo].[Enemies] ([Name], [Health], [Movement], [Strength], [Dexterity], [Constitution], [Intelligence], [Wisdom], [Charisma], [ArmorRating], [Proficiency], [Size], [Type], [ChallengeRating]) " +
+            string insertSql = "INSERT INTO Enemies ([Name], [Health], [Movement], [Strength], [Dexterity], [Constitution], [Intelligence], [Wisdom], [Charisma], [ArmorRating], [Proficiency], [Size], [Type], [ChallengeRating]) " +
                    "VALUES (@Name, @Health, @Movement, @Strength, @Dexterity, @Constitution, @Intelligence, @Wisdom, @Charisma, @ArmorRating, @Proficiency, @Size, @Type, @ChallengeRating)";
 
 

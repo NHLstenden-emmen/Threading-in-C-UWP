@@ -1,4 +1,4 @@
-﻿namespace Threading_in_C_UWP.Board.Placeable
+﻿namespace Threading_in_C_UWP.Board.placeable
 {
     public abstract class Moveable : Placeable
     {

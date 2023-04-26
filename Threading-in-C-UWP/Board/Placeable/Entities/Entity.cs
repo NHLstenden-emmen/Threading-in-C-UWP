@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Threading_in_C_UWP.Board.placeable;
 
-namespace Threading_in_C_UWP.Board.Placeable.Entities
+namespace Threading_in_C_UWP.Players
 {
     [XmlInclude(typeof(Enemy))]
     public class Entity : Moveable

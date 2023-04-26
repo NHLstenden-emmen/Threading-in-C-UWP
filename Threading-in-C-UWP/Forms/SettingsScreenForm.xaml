@@ -9,6 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Button Click="ExportGameButton_Click" Content="Export Game" Margin="0,263,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Button Click="ImportGameButton_Click" Content="Import Game" Margin="0,390,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Button Click="btnResetTurnCounter_Click" Content="Reset Turn Counter" Margin="0,143,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>

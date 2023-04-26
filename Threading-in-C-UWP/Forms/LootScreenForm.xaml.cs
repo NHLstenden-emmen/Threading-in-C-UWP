@@ -39,20 +39,6 @@ namespace Threading_in_C_UWP.Forms
             items.Clear();
             SavedItemsListBox.Items.Clear();
 
-            // Check if table exists
-            string tableCheckSQL = "SELECT name FROM sqlite_master WHERE type='table' AND name='Items'";
-            using (SqliteCommand command = new SqliteCommand(tableCheckSQL, OpenFiveApiRequest.con))
-            {
-                using (SqliteDataReader reader = command.ExecuteReader())
-                {
-                    if (!reader.HasRows)
-                    {
-                        Debug.WriteLine("Table does not exsist");
-                        return;
-                    }
-                }
-            }
-
             string retrieveSQL = "SELECT * FROM Items";
             using (SqliteCommand command = new SqliteCommand(retrieveSQL, OpenFiveApiRequest.con))
             {
@@ -238,7 +224,7 @@ namespace Threading_in_C_UWP.Forms
             }
         }
 
-        private void DeleteItem_Click(object sender, EventArgs e)
+        private void DeleteItem_Click(object sender, RoutedEventArgs e)
         {
             string deleteSQL = "DELETE FROM Items";
             using (SqliteCommand command = new SqliteCommand(deleteSQL, OpenFiveApiRequest.con))
@@ -265,7 +251,6 @@ namespace Threading_in_C_UWP.Forms
 
         private async void SavedItemsListBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            Frame parent = this.Parent as Frame;
             Debug.WriteLine(this.Parent);
             Debug.WriteLine("tapped");
             int index = this.SavedItemsListBox.SelectedIndex;

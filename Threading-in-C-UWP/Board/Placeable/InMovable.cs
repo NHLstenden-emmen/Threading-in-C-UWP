@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Threading_in_C_UWP.Board.Placeable
+﻿namespace Threading_in_C_UWP.Board.placeable
 {
     public abstract class InMovable : Placeable
     {
