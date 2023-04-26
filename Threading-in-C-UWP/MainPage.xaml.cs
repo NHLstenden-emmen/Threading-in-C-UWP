@@ -94,12 +94,12 @@ namespace Threading_in_C_UWP
 
         private async void StartPlayerboard()
         {
-            //AppWindow appWindow = await AppWindow.TryCreateAsync();
-            //Frame appWindowContentFrame = new Frame();
-            //appWindowContentFrame.Navigate(typeof(PlayerBoard));
-            //ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
-            //appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
-            //await appWindow.TryShowAsync();
+            AppWindow appWindow = await AppWindow.TryCreateAsync();
+            Frame appWindowContentFrame = new Frame();
+            appWindowContentFrame.Navigate(typeof(PlayerBoard));
+            ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
+            appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
+            await appWindow.TryShowAsync();
         }
     }
 }

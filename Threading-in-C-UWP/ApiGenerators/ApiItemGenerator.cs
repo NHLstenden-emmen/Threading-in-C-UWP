@@ -6,11 +6,34 @@ using Threading_in_C_UWP.Equipment;
 using Threading_in_C_UWP.OpenFiveApi;
 using Newtonsoft.Json.Linq;
 using Microsoft.Data.Sqlite;
+using System.Diagnostics;
+using System.IO.Ports;
 
 namespace Threading_in_C_UWP.ApiGenerators
 {
     internal class ApiItemGenerator
     {
+        public ApiItemGenerator()
+        {
+            OpenFiveApiRequest.con.Open();
+            String CreateTableSql = "CREATE TABLE IF NOT EXISTS Items (" +
+                "Name           NVARCHAR (20)   PRIMARY KEY," +
+                "Rarity         VARCHAR(50)     DEFAULT((0)) NOT NULL," +
+                "Value          INT             DEFAULT((0)) NOT NULL," +
+                "Description    VARCHAR(255)    NULL," +
+                "Properties     VARCHAR(255)    NULL," +
+                "Drawbacks      VARCHAR(255)    NULL," +
+                "Requirements   VARCHAR(255)    NULL," +
+                "History        VARCHAR(255)    NULL," +
+                "Type           VARCHAR(255)    NULL);";
+            using (SqliteCommand command = new SqliteCommand(CreateTableSql, OpenFiveApiRequest.con))
+            {
+                SqliteDataReader reader = command.ExecuteReader();
+                Debug.WriteLine(reader.ToString());
+            }
+            OpenFiveApiRequest.con.Close();
+        }
+
         // TODO, first check if rarity is available, if not, use getRarity method
         public static Item Parse(string rarity = null)
         {
@@ -161,7 +184,7 @@ namespace Threading_in_C_UWP.ApiGenerators
         {
             OpenFiveApiRequest.con.Open();
 
-            string insertSql = "INSERT INTO [dbo].[Items] ([Name], [Type], [Rarity], [Value], [Description], [Properties], [Drawbacks], [Requirements], [History]) " +
+            string insertSql = "INSERT INTO Items ([Name], [Type], [Rarity], [Value], [Description], [Properties], [Drawbacks], [Requirements], [History]) " +
                    "VALUES (@Name, @Type, @Rarity, @Value, @Description, @Properties, @Drawbacks, @Requirements, @History)";
 
             using (SqliteCommand command = new SqliteCommand(insertSql, OpenFiveApiRequest.con))
@@ -184,7 +207,7 @@ namespace Threading_in_C_UWP.ApiGenerators
                 }
                 catch (SqliteException ex)
                 {
-                    Console.WriteLine("An error occurred while inserting data: " + ex.Message);
+                    Debug.WriteLine("An error occurred while inserting data: " + ex.Message);
                 }
             }
 

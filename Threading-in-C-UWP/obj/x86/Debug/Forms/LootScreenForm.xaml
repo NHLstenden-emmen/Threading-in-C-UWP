@@ -12,9 +12,6 @@
         <Button x:ConnectionId='2' Content="Generate"  VerticalAlignment="Top" Margin="458,34,0,0"                                 />
         <TextBox x:ConnectionId='3' x:Name="AmountOfItems" HorizontalAlignment="Left" Margin="550,34,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
         <ListBox x:ConnectionId='4' Margin="10,100,10,10" x:Name="SavedItemsListBox"                                              />
-        <Popup>
-            <Grid Background="#FFE5E5E5"/>
-        </Popup>
     </Grid>
 </Page>
 

@@ -12,8 +12,5 @@
         <Button Content="Generate"  VerticalAlignment="Top" Margin="458,34,0,0" Click="GenerateItemButton_Click"/>
         <TextBox x:Name="AmountOfItems" HorizontalAlignment="Left" Margin="550,34,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
         <ListBox Margin="10,100,10,10" x:Name="SavedItemsListBox" DoubleTapped="SavedItemsListBox_DoubleTapped"/>
-        <Popup>
-            <Grid Background="#FFE5E5E5"/>
-        </Popup>
     </Grid>
 </Page>

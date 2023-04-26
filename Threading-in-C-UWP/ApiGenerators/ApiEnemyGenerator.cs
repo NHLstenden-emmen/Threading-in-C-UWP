@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using Threading_in_C_UWP.Board.Placeable.Entities;
 using Threading_in_C_UWP.OpenFiveApi;
 
@@ -9,6 +10,33 @@ namespace Threading_in_C_UWP.ApiGenerators
 {
     internal class ApiEnemyGenerator
     {
+        public ApiEnemyGenerator()
+        {
+
+            OpenFiveApiRequest.con.Open();
+            String CreateTableSql = "CREATE TABLE IF NOT EXISTS Enemy (" +
+                "Name            NVARCHAR (20) PRIMARY KEY," +
+                "Health          INT           DEFAULT ((0)) NOT NULL," +
+                "Movement        INT           DEFAULT ((0)) NOT NULL," +
+                "Strength        INT           DEFAULT ((0)) NOT NULL," +
+                "Dexterity       INT           DEFAULT ((0)) NOT NULL," +
+                "Constitution    INT           DEFAULT ((0)) NOT NULL," +
+                "Intelligence    INT           DEFAULT ((0)) NOT NULL," +
+                "Wisdom          INT           DEFAULT ((0)) NOT NULL," +
+                "Charisma        INT           DEFAULT ((0)) NOT NULL," +
+                "ArmorRating     INT           DEFAULT ((0)) NOT NULL," +
+                "Proficiency     INT           DEFAULT ((0)) NOT NULL," +
+                "Size            VARCHAR (50)  DEFAULT ((1)) NOT NULL," +
+                "Type            VARCHAR (50)  NULL," +
+                "ChallengeRating VARCHAR (50) NULL);";
+            using (SqliteCommand command = new SqliteCommand(CreateTableSql, OpenFiveApiRequest.con))
+            {
+                SqliteDataReader reader = command.ExecuteReader();
+                Debug.WriteLine(reader.ToString());
+            }
+            OpenFiveApiRequest.con.Close();
+        }
+
         // Changes the API response into an enemy
         public static Enemy Parse(int? ChallengeRating = null)
         {

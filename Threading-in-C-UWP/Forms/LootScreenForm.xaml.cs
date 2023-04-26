@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using Threading_in_C_UWP.ApiGenerators;
 using Threading_in_C_UWP.Equipment;
@@ -38,48 +39,69 @@ namespace Threading_in_C_UWP.Forms
             items.Clear();
             SavedItemsListBox.Items.Clear();
 
-            string retrieveSQL = "SELECT * FROM Items";
-            using (SqliteCommand command = new SqliteCommand(retrieveSQL, OpenFiveApiRequest.con))
+            // Check if table exists
+            string tableCheckSQL = "SELECT name FROM sqlite_master WHERE type='table' AND name='Items'";
+            using (SqliteCommand command = new SqliteCommand(tableCheckSQL, OpenFiveApiRequest.con))
             {
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (!reader.HasRows)
                     {
-                        List<string> properties = new List<string>();
-                        string[] propertiesStrings = reader["Properties"].ToString().Split(';');
-                        foreach (string propertiesString in propertiesStrings)
-                        {
-                            properties.Add(propertiesString);
-                        }
-
-                        List<string> drawbacks = new List<string>();
-                        string[] drawbacksStrings = reader["Drawbacks"].ToString().Split(';');
-                        foreach (string drawbacksString in drawbacksStrings)
-                        {
-                            drawbacks.Add(drawbacksString);
-                        }
-
-                        List<string> requirements = new List<string>();
-                        string[] requirementsStrings = reader["Requirements"].ToString().Split(';');
-                        foreach (string requirementsString in requirementsStrings)
-                        {
-                            requirements.Add(requirementsString);
-                        }
-
-                        Item item = new Item
-                        (
-                            reader["Name"].ToString(),
-                            reader["Type"].ToString(),
-                            reader["Rarity"].ToString(),
-                            (int)reader["Value"],
-                            reader["Description"].ToString(),
-                            properties,
-                            drawbacks,
-                            requirements,
-                            reader["history"].ToString()
-                        );
-                        items.Add(item);
+                        Debug.WriteLine("Table does not exsist");
+                        return;
                     }
+                }
+            }
+
+            string retrieveSQL = "SELECT * FROM Items";
+            using (SqliteCommand command = new SqliteCommand(retrieveSQL, OpenFiveApiRequest.con))
+            {
+                try
+                {
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            List<string> properties = new List<string>();
+                            string[] propertiesStrings = reader["Properties"].ToString().Split(';');
+                            foreach (string propertiesString in propertiesStrings)
+                            {
+                                properties.Add(propertiesString);
+                            }
+
+                            List<string> drawbacks = new List<string>();
+                            string[] drawbacksStrings = reader["Drawbacks"].ToString().Split(';');
+                            foreach (string drawbacksString in drawbacksStrings)
+                            {
+                                drawbacks.Add(drawbacksString);
+                            }
+
+                            List<string> requirements = new List<string>();
+                            string[] requirementsStrings = reader["Requirements"].ToString().Split(';');
+                            foreach (string requirementsString in requirementsStrings)
+                            {
+                                requirements.Add(requirementsString);
+                            }
+
+                            Item item = new Item
+                            (
+                                reader["Name"].ToString(),
+                                reader["Type"].ToString(),
+                                reader["Rarity"].ToString(),
+                                (int)(long)reader["Value"],
+                                reader["Description"].ToString(),
+                                properties,
+                                drawbacks,
+                                requirements,
+                                reader["history"].ToString()
+                            );
+                            items.Add(item);
+                        }
+                    }
+                }
+                catch (SqliteException e)
+                {
+                    Debug.WriteLine("Retrieve items from database " + e.ToString());
                 }
             }
 
@@ -119,12 +141,20 @@ namespace Threading_in_C_UWP.Forms
                 using (SqliteCommand command = new SqliteCommand(retrieveSQL, OpenFiveApiRequest.con))
                 {
                     command.Parameters.AddWithValue("@ItemName", ItemName);
-                    using (SqliteDataReader reader = command.ExecuteReader())
+                    try
                     {
-                        if (reader.HasRows)
+                        using (SqliteDataReader reader = command.ExecuteReader())
                         {
-                            itemExists = true;
+                            if (reader.HasRows)
+                            {
+                                itemExists = true;
+                            }
                         }
+                    }
+                    catch (SqliteException e)
+                    {
+                        Debug.WriteLine("ItemExistsInDatabase" + e.ToString());
+                        return false;
                     }
                 }
                 OpenFiveApiRequest.con.Close();
@@ -233,9 +263,19 @@ namespace Threading_in_C_UWP.Forms
 
         }
 
-        private void SavedItemsListBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private async void SavedItemsListBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
+            Frame parent = this.Parent as Frame;
+            Debug.WriteLine(this.Parent);
+            Debug.WriteLine("tapped");
             int index = this.SavedItemsListBox.SelectedIndex;
+            ContentDialog lootItemDialog = new ContentDialog()
+            {
+                Title = "Loot found!",
+                Content = items[index].ToString(),
+                CloseButtonText = "Ok"
+            };
+            await lootItemDialog.ShowAsync();
         }
     }
 }

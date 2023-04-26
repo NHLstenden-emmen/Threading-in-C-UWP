@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Runtime.CompilerServices;
 using Windows.Storage;
 
 namespace Threading_in_C_UWP.OpenFiveApi
@@ -11,7 +12,7 @@ namespace Threading_in_C_UWP.OpenFiveApi
     public class OpenFiveApiRequest
     {
         //public static SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + Windows.ApplicationModel.Package.Current.InstalledLocation.Path.Replace("bin\\Debug", "Datasets\\DungeonDB.mdf;Integrated Security=True"));
-        public static SqliteConnection con = new SqliteConnection($"Filename={Path.Combine(ApplicationData.Current.LocalFolder.Path, "userdData.db")}");
+        public static SqliteConnection con = new SqliteConnection($"Filename={Path.Combine(ApplicationData.Current.LocalFolder.Path, "DungeonDB.db")}");
         private readonly OpenFiveApiUrlBuilder urlBuilder;
 
         public OpenFiveApiRequest()
