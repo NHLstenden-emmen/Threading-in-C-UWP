@@ -37,10 +37,8 @@ namespace Threading_in_C_UWP.Forms
 
         public Home()
         {
+            //TODO snap to left side of screen
             InitializeComponent();
-            //this.Text = string.Empty;
-            //this.ControlBox = false;
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             InitateComboBoxes();
             UpdateComboBoxValue();
         }

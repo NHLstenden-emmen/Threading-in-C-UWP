@@ -176,6 +176,17 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Dice\D10.png" />
+    <Content Include="Assets\Dice\D100.png" />
+    <Content Include="Assets\Dice\D12.png" />
+    <Content Include="Assets\Dice\D20.png" />
+    <Content Include="Assets\Dice\D4.png" />
+    <Content Include="Assets\Dice\D6.png" />
+    <Content Include="Assets\Dice\D8.png" />
+    <Content Include="Assets\DnD-Symbol.png" />
+    <Content Include="Assets\magicitemcards_template_front_poker.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\tempLogo.png" />
     <Content Include="Datasets\DungeonDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

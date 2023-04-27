@@ -23,6 +23,8 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Text" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Threading_in_C_UWP.Forms.DisplayLootScreenForm" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
@@ -58,6 +60,10 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Tag" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Threading_in_C_UWP.Forms.Home" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
@@ -68,6 +74,9 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
       <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
       <RootProperty Name="Margin" />

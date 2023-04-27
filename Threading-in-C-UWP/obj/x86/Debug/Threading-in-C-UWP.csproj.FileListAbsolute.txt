@@ -97,3 +97,4 @@ D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\MonstersScreenForm.xaml
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\Forms\MonstersScreenForm.xbf
 D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MonstersScreenForm.xbf
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Assets\magicitemcards_template_front_poker.jpg
