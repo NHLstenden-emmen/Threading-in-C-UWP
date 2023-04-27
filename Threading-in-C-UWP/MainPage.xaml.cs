@@ -40,7 +40,7 @@ namespace Threading_in_C_UWP
             this.InitializeComponent();
             ApplicationView.PreferredLaunchViewSize = new Size(960, 1080);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-            StartPlayerboard();
+            //StartPlayerboard();
         }
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -63,6 +63,7 @@ namespace Threading_in_C_UWP
         private void NavView_ItemInvoked(NavigationView sender,
                                  NavigationViewItemInvokedEventArgs args)
         {
+            Debug.WriteLine("2");
             if (args.IsSettingsInvoked == true)
             {
                 NavView_Navigate("settings", args.RecommendedNavigationTransitionInfo);
@@ -82,6 +83,7 @@ namespace Threading_in_C_UWP
             if (navItemTag == "TurnCounter")
             {
                 AddTurn();
+                return;
             }
             else
             {
@@ -95,10 +97,7 @@ namespace Threading_in_C_UWP
             // Only navigate if the selected page isn't currently loaded.
             if (!(_page is null) && !Type.Equals(preNavPageType, _page))
             {
-                if (_page == typeof(SettingsScreenForm))
-                {
-                    ContentFrame.Navigate(_page, this, transitionInfo);
-                }
+                ContentFrame.Navigate(_page, null, transitionInfo);
             }
         }
 

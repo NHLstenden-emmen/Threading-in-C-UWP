@@ -7,6 +7,7 @@ using System.Threading;
 using Threading_in_C_UWP.ApiGenerators;
 using Threading_in_C_UWP.OpenFiveApi;
 using Windows.Foundation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
@@ -36,7 +37,24 @@ namespace Threading_in_C_UWP.Forms
             //this.Text = string.Empty;
             //this.ControlBox = false;
             //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            InitateComboBoxes();
             UpdateComboBoxValue();
+        }
+
+        private void InitateComboBoxes()
+        {
+            foreach (UIElement item in ComboboxGrid.Children)
+            {
+                if(item.GetType() == typeof(ComboBox))
+                {
+                    ComboBox comboBox = (ComboBox)item;
+                    for (int i = 0;i < 100;i++)
+                    {
+                        comboBox.Items.Add(i);
+                    }
+                    comboBox.SelectedIndex = 0;
+                }
+            }
         }
 
         private void UpdateComboBoxValue()
