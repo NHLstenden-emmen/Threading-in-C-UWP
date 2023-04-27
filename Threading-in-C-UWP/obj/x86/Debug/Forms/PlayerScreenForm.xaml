@@ -13,29 +13,29 @@
         <TextBlock x:ConnectionId='3' Name="LabelName" HorizontalAlignment="Left" Margin="179,72,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Foreground="Black" />
         <TextBox x:ConnectionId='4' Name="InputName" HorizontalAlignment="Left" Margin="138,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="#00000000" Width="119" Background="#00000000"/>
         <TextBlock x:ConnectionId='5' Name="LabelLevel" HorizontalAlignment="Left" Margin="154,129,0,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='6' Name="InputLevel" Margin="206,123,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30"/>
-        
+        <ComboBox x:ConnectionId='6' Name="InputLevel" Margin="206,123,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+
         <TextBlock x:ConnectionId='7' Name="LabelHealth" HorizontalAlignment="Left" Margin="67,313,0,0" TextWrapping="Wrap" Text="Health" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='8' Name="InputHealth" Margin="155,308,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='8' Name="InputHealth" Margin="155,308,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='9' Name="LabelMovement" HorizontalAlignment="Left" Margin="67,343,0,0" TextWrapping="Wrap" Text="Movement" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='10' Name="InputMovement" Margin="155,338,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='10' Name="InputMovement" Margin="155,338,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='11' Name="LabelStrength" HorizontalAlignment="Left" Margin="67,373,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='12' Name="InputStrength" Margin="155,368,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='12' Name="InputStrength" Margin="155,368,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='13' Name="LabelDexterity" HorizontalAlignment="Left" Margin="67,403,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='14' Name="InputDexterity" Margin="155,398,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='14' Name="InputDexterity" Margin="155,398,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='15' Name="LabelArmorRating" HorizontalAlignment="Left" Margin="67,433,0,0" TextWrapping="Wrap" Text="Armor Rating" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='16' Name="InputArmorRating" Margin="155,428,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='16' Name="InputArmorRating" Margin="155,428,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
 
         <TextBlock x:ConnectionId='17' Name="LabelConstitution" HorizontalAlignment="Left" Margin="197,313,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='18' Name="InputConstitution" Margin="285,308,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='18' Name="InputConstitution" Margin="285,308,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='19' Name="LabelIntelligence" HorizontalAlignment="Left" Margin="197,343,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='20' Name="InputIntelligence" Margin="285,338,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='20' Name="InputIntelligence" Margin="285,338,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='21' Name="LabelWisdom" HorizontalAlignment="Left" Margin="197,373,0,0" TextWrapping="Wrap" Text="Wisdom" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='22' Name="InputWisdom" Margin="285,368,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='22' Name="InputWisdom" Margin="285,368,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='23' Name="LabelCharisma" HorizontalAlignment="Left" Margin="197,403,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='24' Name="InputCharisma" Margin="285,398,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='24' Name="InputCharisma" Margin="285,398,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock x:ConnectionId='25' Name="LabelProficiency" HorizontalAlignment="Left" Margin="197,433,0,0" TextWrapping="Wrap" Text="Proficiency" VerticalAlignment="Top" Foreground="Black"/>
-        <ComboBox x:ConnectionId='26' Name="InputProficiency" Margin="285,428,0,0" Text="" BorderBrush="#00000000" Width="30" Background="#00000000" Height="30" Foreground="Black"/>
+        <ComboBox x:ConnectionId='26' Name="InputProficiency" Margin="285,428,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
     </Grid>
 </Page>
 
