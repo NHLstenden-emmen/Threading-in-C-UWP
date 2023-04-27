@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -100,63 +101,16 @@ namespace Threading_in_C_UWP.Forms
             //this.Location = Screen.AllScreens[selectedScreen].WorkingArea.Location;
         }
 
-        private void ActivateButton(object btnSender)
-        {
-            if (btnSender != null)
-            {
-                if (currentButton != (Button)btnSender)
-                {
-                    DisableButton();
-                    currentButton = (Button)btnSender;
-                    currentButton.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
-                    //currentButton.ForeColor = Color.White;
-                }
-            }
-        }
-        private void DisableButton()
-        {
-            //foreach (Control previousBtn in panelMenu.Controls)
-            //{
-            //    if (previousBtn.GetType() == typeof(Button))
-            //    {
-            //        if (previousBtn.Name != "btnClose" && previousBtn.Name != "bntMinimize" && previousBtn.Name != "btnTurnCounter")
-            //        {
-            //            previousBtn.Background = new SolidColorBrush(Windows.UI.Colors.Black);
-            //            //previousBtn.ForeColor = Color.Red;
-            //        }
-            //    }
-            //}
-        }
-
-
         private void btnRollDice_Click(object sender, RoutedEventArgs e)
         {
             rollValues.Clear();
-
-            //foreach (UIElement item in HomeGrid.Children)
-            //{
-            //    if (item.GetType() == typeof(Grid))
-            //    {
-            //        Grid itemGrid = (Grid)item;
-            //        foreach (UIElement itemInGrid in itemGrid.Children)
-            //        {
-            //            if (itemInGrid.GetType() == typeof(ComboBox))
-            //            {
-            //                ComboBox comboBox = (ComboBox)itemInGrid;
-            //                for (int i = 0; i < 100; i++)
-            //                {
-            //                    comboBox.Items.Add(i);
-            //                }
-            //                comboBox.SelectedIndex = 0;
-            //            }
-            //        }
-            //    }
-            //}
 
             for (int i = 1; i <= createdGroupBoxes; i++)
             {
                 string nameComboBox = "comboBoxDiceRoll" + i.ToString();
                 ComboBox comboBox = (ComboBox)this.FindName(nameComboBox);
+                Debug.WriteLine(nameComboBox);
+                Debug.WriteLine(comboBox.Name);
                 String comboBoxName = "";
                 if (comboBox.SelectedValue != null)
                 {
@@ -262,7 +216,7 @@ namespace Threading_in_C_UWP.Forms
             else if (createdGroupBoxes < 8)
             {
                 // Right row
-                gridCopy.Margin = new Thickness(ComboboxGrid1.Margin.Left + 400, ComboboxGrid1.Margin.Top + 130 * createdGroupBoxes, ComboboxGrid1.Margin.Right, ComboboxGrid1.Margin.Bottom);
+                gridCopy.Margin = new Thickness(ComboboxGrid1.Margin.Left + 400, ComboboxGrid1.Margin.Top + 130 * (createdGroupBoxes - 4), ComboboxGrid1.Margin.Right - 400, ComboboxGrid1.Margin.Bottom - 130 * (createdGroupBoxes - 4));
             }
             else
             {
@@ -279,12 +233,36 @@ namespace Threading_in_C_UWP.Forms
 
             gridCopy.Height = ComboboxGrid1.Height;
             gridCopy.Width = ComboboxGrid1.Width;
+            gridCopy.HorizontalAlignment = ComboboxGrid1.HorizontalAlignment;
+            gridCopy.VerticalAlignment = ComboboxGrid1.VerticalAlignment;
+            gridCopy.Name = "ComboboxGrid" + createdGroupBoxes;
 
+            Debug.Write(ComboboxGrid1.Margin);
+            Debug.Write(gridCopy.Margin);
+            HomeGrid.Children.Add(gridCopy);
             foreach (UIElement itemInGrid in ComboboxGrid1.Children)
             {
-                gridCopy.Children.Add((UIElement)Activator.CreateInstance(itemInGrid.GetType()));
+                UIElement newItem = (UIElement)Activator.CreateInstance(itemInGrid.GetType());
+                if (newItem.GetType() == typeof(ComboBox)) 
+                {
+                    ((ComboBox)newItem).Margin = ((ComboBox)itemInGrid).Margin;
+                    ((ComboBox)newItem).Name = ((ComboBox)itemInGrid).Name.Substring(0, ((ComboBox)itemInGrid).Name.Length - 1) + createdGroupBoxes;
+                    ((ComboBox)newItem).Tag = ((ComboBox)itemInGrid).Tag;
+                    ((ComboBox)newItem).Width = ((ComboBox)itemInGrid).Width;
+                    ((ComboBox)newItem).Height = ((ComboBox)itemInGrid).Height;
+                    ((ComboBox)newItem).HorizontalAlignment = ((ComboBox)itemInGrid).HorizontalAlignment;
+                    ((ComboBox)newItem).VerticalAlignment = ((ComboBox)itemInGrid).VerticalAlignment;
+                    foreach (var dropdownItem in ((ComboBox)itemInGrid).Items)
+                    {
+                        ((ComboBox)newItem).Items.Add(dropdownItem);
+                    }
+                    ((ComboBox)newItem).SelectedIndex = 0;
+                    Debug.WriteLine(((ComboBox)newItem).Margin);
+                }
+
+                gridCopy.Children.Add(newItem);
             }
-            HomeGrid.Children.Add(gridCopy);
+            Debug.WriteLine("margin ");
         }
     }
 }
