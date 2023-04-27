@@ -1,14 +1,17 @@
 ﻿using Microsoft.Data.Sqlite;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Xml;
 using Threading_in_C_UWP.ApiGenerators;
 using Threading_in_C_UWP.OpenFiveApi;
-using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -43,38 +46,44 @@ namespace Threading_in_C_UWP.Forms
 
         private void InitateComboBoxes()
         {
-            foreach (UIElement item in ComboboxGrid.Children)
+            foreach (UIElement item in HomeGrid.Children)
             {
-                if(item.GetType() == typeof(ComboBox))
-                {
-                    ComboBox comboBox = (ComboBox)item;
-                    for (int i = 0;i < 100;i++)
+                if (item.GetType() == typeof(Grid)) { 
+                    Grid itemGrid= (Grid)item;
+                    foreach (UIElement itemInGrid in itemGrid.Children)
                     {
-                        comboBox.Items.Add(i);
+                        if (itemInGrid.GetType() == typeof(ComboBox))
+                        {
+                            ComboBox comboBox = (ComboBox)itemInGrid;
+                            for (int i = 0; i < 100; i++)
+                            {
+                                comboBox.Items.Add(i);
+                            }
+                            comboBox.SelectedIndex = 0;
+                        }
                     }
-                    comboBox.SelectedIndex = 0;
                 }
             }
         }
 
         private void UpdateComboBoxValue()
         {
-            //comboBoxDiceRoll1.Items.Clear();
-            //// Fill the combobox with the enemies
-            //SqliteConnection connection = OpenFiveApiRequest.con;
-            //connection.Open();
-            //SqliteCommand allEnemiesAndNPCs = new SqliteCommand("SELECT Name FROM Enemies UNION SELECT Name FROM NPCs", connection);
-            //SqliteDataReader reader = allEnemiesAndNPCs.ExecuteReader();
-            //while (reader.Read())
-            //{
-            //    // Add each player name to the ComboBox
-            //    string playerName = reader.GetString(0);
-            //    comboBoxDiceRoll1.Items.Add(playerName);
-            //}
-            //// Close the connection and dispose of the command and reader objects
-            //reader.Close();
-            //allEnemiesAndNPCs.Dispose();
-            //connection.Close();
+            comboBoxDiceRoll1.Items.Clear();
+            // Fill the combobox with the enemies
+            SqliteConnection connection = OpenFiveApiRequest.con;
+            connection.Open();
+            SqliteCommand allEnemiesAndNPCs = new SqliteCommand("SELECT Name FROM Enemies UNION SELECT Name FROM NPCs", connection);
+            SqliteDataReader reader = allEnemiesAndNPCs.ExecuteReader();
+            while (reader.Read())
+            {
+                // Add each player name to the ComboBox
+                string playerName = reader.GetString(0);
+                comboBoxDiceRoll1.Items.Add(playerName);
+            }
+            // Close the connection and dispose of the command and reader objects
+            reader.Close();
+            allEnemiesAndNPCs.Dispose();
+            connection.Close();
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -120,79 +129,101 @@ namespace Threading_in_C_UWP.Forms
         }
 
 
-        private void btnRollDice_Click(object sender, EventArgs e)
+        private void btnRollDice_Click(object sender, RoutedEventArgs e)
         {
-            //rollValues.Clear();
+            rollValues.Clear();
 
-            //for (int i = 1; i <= createdGroupBoxes; i++)
+            //foreach (UIElement item in HomeGrid.Children)
             //{
-            //    string comboBoxName = "comboBoxDiceRoll" + i.ToString();
-            //    ComboBox comboBox = (ComboBox)this.Controls.Find(comboBoxName, true)[0];
-
-            //    comboBoxName = comboBox.Text;
-
-            //    int[] diceValues = { 4, 6, 8, 10, 12, 20, 100 };
-
-            //    // check if any of the dice have a value
-            //    bool hasValue = false;
-            //    foreach (int diceValue in diceValues)
+            //    if (item.GetType() == typeof(Grid))
             //    {
-            //        string numericUpDownName = "numericUpDownD" + diceValue.ToString() + "Roll" + i.ToString();
-            //        int value = (int)((NumericUpDown)this.Controls.Find(numericUpDownName, true)[0]).Value;
-            //        if (value > 0)
+            //        Grid itemGrid = (Grid)item;
+            //        foreach (UIElement itemInGrid in itemGrid.Children)
             //        {
-            //            if (!rollValues.ContainsKey(comboBoxName))
+            //            if (itemInGrid.GetType() == typeof(ComboBox))
             //            {
-            //                rollValues.Add(comboBoxName, new Dictionary<string, List<int>>());
+            //                ComboBox comboBox = (ComboBox)itemInGrid;
+            //                for (int i = 0; i < 100; i++)
+            //                {
+            //                    comboBox.Items.Add(i);
+            //                }
+            //                comboBox.SelectedIndex = 0;
             //            }
-            //            hasValue = true;
-            //            int tag = Convert.ToInt32(((NumericUpDown)this.Controls.Find(numericUpDownName, true)[0]).Tag);
-
-            //            // nieuwe thread for nieuwe dice rolls
-            //            Thread thread = new Thread(() => RollDice(comboBoxName, diceValue, i, value, tag));
-            //            threads.Add(thread);
-            //            thread.Start();
             //        }
             //    }
-
-            //    // if none of the dice have a value, skip the comboBox
-            //    if (!hasValue)
-            //    {
-            //        continue;
-            //    }
             //}
 
-            //// wait for all the threads to finish before moving on
-            //foreach (Thread thread in threads)
-            //{
-            //    thread.Join();
-            //}
+            for (int i = 1; i <= createdGroupBoxes; i++)
+            {
+                string nameComboBox = "comboBoxDiceRoll" + i.ToString();
+                ComboBox comboBox = (ComboBox)this.FindName(nameComboBox);
+                String comboBoxName = "";
+                if (comboBox.SelectedValue != null)
+                {
+                    comboBoxName = comboBox.SelectedValue.ToString();
+                }
 
-            //DisplayRollValueText();
+                int[] diceValues = { 4, 6, 8, 10, 12, 20, 100 };
+
+                // check if any of the dice have a value
+                bool hasValue = false;
+                foreach (int diceValue in diceValues)
+                {
+                    string comboBoxDiceName = "comboBoxD" + diceValue.ToString() + "Roll" + i.ToString();
+                    int value = (int)((ComboBox)this.FindName(comboBoxDiceName)).SelectedIndex;
+                    if (value > 0)
+                    {
+                        if (!rollValues.ContainsKey(comboBoxName))
+                        {
+                            rollValues.Add(comboBoxName, new Dictionary<string, List<int>>());
+                        }
+                        hasValue = true;
+                        int tag = Convert.ToInt32(((ComboBox)this.FindName(comboBoxDiceName)).Tag);
+
+                        // nieuwe thread for nieuwe dice rolls
+                        Thread thread = new Thread(() => RollDice(comboBoxName, diceValue, i, value, tag));
+                        threads.Add(thread);
+                        thread.Start();
+                    }
+                }
+
+                // if none of the dice have a value, skip the comboBox
+                if (!hasValue)
+                {
+                    continue;
+                }
+            }
+
+            // wait for all the threads to finish before moving on
+            foreach (Thread thread in threads)
+            {
+                thread.Join();
+            }
+
+            DisplayRollValueText();
         }
 
         private void DisplayRollValueText()
         {
-            // create a new string builder to store the results
-            //StringBuilder sb = new StringBuilder();
+            //create a new string builder to store the results
+            StringBuilder sb = new StringBuilder();
 
 
-            //// loop through the rollValues dictionary
-            //foreach (string comboBoxName in rollValues.Keys)
-            //{
-            //    sb.AppendLine(comboBoxName + ":");
+            // loop through the rollValues dictionary
+            foreach (string comboBoxName in rollValues.Keys)
+            {
+                sb.AppendLine(comboBoxName + ":");
 
-            //    foreach (string dice in rollValues[comboBoxName].Keys)
-            //    {
-            //        sb.AppendLine("" + dice + ": " + string.Join(", ", rollValues[comboBoxName][dice]));
-            //    }
+                foreach (string dice in rollValues[comboBoxName].Keys)
+                {
+                    sb.AppendLine("" + dice + ": " + string.Join(", ", rollValues[comboBoxName][dice]));
+                }
 
-            //    sb.AppendLine();
-            //}
+                sb.AppendLine();
+            }
 
-            //// display the results in a multi-line text box or list box
-
-            //richTextBox1.Text = sb.ToString();
+            // display the results in a multi-line text box or list box
+            RichEditBox.Document.SetText(Windows.UI.Text.TextSetOptions.None, sb.ToString());
         }
 
         // method to roll the dice and add the values to the dictionary
@@ -220,57 +251,40 @@ namespace Threading_in_C_UWP.Forms
             }
         }
 
-        private void btnAddNewDiceRoll_Click(object sender, EventArgs e)
+        private void btnAddNewDiceRoll_Click(object sender, RoutedEventArgs e)
         {
-            //GroupBox groupBoxCopy = new GroupBox();
+            Grid gridCopy = new Grid();
+            if (createdGroupBoxes < 4)
+            {
+                // Left row
+                gridCopy.Margin= new Thickness(ComboboxGrid1.Margin.Left, ComboboxGrid1.Margin.Top + 130 * createdGroupBoxes, ComboboxGrid1.Margin.Right, ComboboxGrid1.Margin.Bottom) ;
+            }
+            else if (createdGroupBoxes < 8)
+            {
+                // Right row
+                gridCopy.Margin = new Thickness(ComboboxGrid1.Margin.Left + 400, ComboboxGrid1.Margin.Top + 130 * createdGroupBoxes, ComboboxGrid1.Margin.Right, ComboboxGrid1.Margin.Bottom);
+            }
+            else
+            {
+                ContentDialog maxRollsDialog = new ContentDialog()
+                {
+                    Title = "Error!",
+                    Content = "New group can't be added \r\nMax amount of groups reached",
+                    CloseButtonText = "Ok"
+                };
+                maxRollsDialog.ShowAsync();
+                return;
+            }
+            createdGroupBoxes++;
 
-            //if (createdGroupBoxes < 4)
-            //{
-            //    groupBoxCopy.Location = new Point(30, RollTheDice.Location.Y + ((RollTheDice.Size.Height + 20) * createdGroupBoxes));
-            //}
-            //else if (createdGroupBoxes < 8)
-            //{
-            //    groupBoxCopy.Location = new Point(RollTheDice.Location.X + RollTheDice.Size.Width + 150, RollTheDice.Location.Y + ((RollTheDice.Size.Height + 20) * (createdGroupBoxes - 4)));
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Max dobbelsteen roll's behaald");
-            //    return;
-            //}
-            //createdGroupBoxes++;
+            gridCopy.Height = ComboboxGrid1.Height;
+            gridCopy.Width = ComboboxGrid1.Width;
 
-            //groupBoxCopy.Size = RollTheDice.Size;
-
-            //foreach (Control control in RollTheDice.Controls)
-            //{
-            //    Control controlCopy = (Control)Activator.CreateInstance(control.GetType());
-            //    controlCopy.Location = control.Location;
-            //    controlCopy.Name = control.Name.Remove(control.Name.Length - 1) + createdGroupBoxes;
-            //    controlCopy.Size = control.Size;
-            //    controlCopy.Text = control.Text;
-            //    controlCopy.Tag = control.Tag;
-            //    if (control is ComboBox)
-            //    {
-            //        ComboBox comboBox = control as ComboBox;
-            //        ComboBox comboBoxCopy = controlCopy as ComboBox;
-
-            //        foreach (var item in comboBox.Items)
-            //        {
-            //            comboBoxCopy.Items.Add(item);
-            //        }
-            //    }
-            //    if (control is PictureBox)
-            //    {
-            //        PictureBox pictureBox = control as PictureBox;
-            //        PictureBox pictureBoxCopy = controlCopy as PictureBox;
-            //        pictureBoxCopy.Image = pictureBox.Image;
-            //        pictureBoxCopy.SizeMode = pictureBox.SizeMode;
-            //    }
-
-            //    groupBoxCopy.Controls.Add(controlCopy);
-            //}
-
-            //this.panelContentScreen.Controls.Add(groupBoxCopy);
+            foreach (UIElement itemInGrid in ComboboxGrid1.Children)
+            {
+                gridCopy.Children.Add((UIElement)Activator.CreateInstance(itemInGrid.GetType()));
+            }
+            HomeGrid.Children.Add(gridCopy);
         }
     }
 }
