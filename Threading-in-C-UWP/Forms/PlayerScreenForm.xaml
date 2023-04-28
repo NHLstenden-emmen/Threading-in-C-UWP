@@ -10,6 +10,7 @@
 
     <Grid Name="PlayerGrid">
         <Image Source="../Assets/magicitemcards_template_front_poker.jpg" HorizontalAlignment="Left" Height="407" Margin="52,62,0,0" VerticalAlignment="Top" Width="290"/>
+        <Image Source="../Assets/DnD-Symbol.png" HorizontalAlignment="Left" Height="130" Margin="82,168,0,0" VerticalAlignment="Top" Width="230"/>
         <TextBlock Name="LabelName" HorizontalAlignment="Left" Margin="179,72,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Foreground="Black" />
         <TextBox Name="InputName" HorizontalAlignment="Left" Margin="138,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="#00000000" Width="119" Background="#00000000" Foreground="Black"/>
         <TextBlock Name="LabelLevel" HorizontalAlignment="Left" Margin="154,129,0,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Foreground="Black"/>
@@ -36,5 +37,20 @@
         <ComboBox Name="InputCharisma" Margin="285,398,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
         <TextBlock Name="LabelProficiency" HorizontalAlignment="Left" Margin="197,433,0,0" TextWrapping="Wrap" Text="Proficiency" VerticalAlignment="Top" Foreground="Black"/>
         <ComboBox Name="InputProficiency" Margin="285,428,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <Button x:Name="AddPlayerButton" Content="Register Player" Margin="130,467,0,0" VerticalAlignment="Top" Click="AddPlayerButton_Click"/>
+        
+        <Grid Height="190" Margin="430,72,60,704">
+            <TextBlock x:Name="PlayerOptionalLabel" HorizontalAlignment="Left" Margin="20,-10,0,0" TextWrapping="Wrap" Text="Optional:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="PlayerRaceLabel" HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="Race" VerticalAlignment="Top"/>
+            <TextBox x:Name="InputRace" Margin="20,50,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="#00000000"/>
+            <TextBlock x:Name="PlayerClassLable" HorizontalAlignment="Left" Margin="20,100,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top"/>
+            <TextBox x:Name="InputClass" Margin="20,130,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="#00000000"/>
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="0,0,0,0"/>
+        </Grid>
+        
+        <ListBox x:Name="PlayerListbox" Margin="10,540,10,127"/>
+        <Button x:Name="EditPlayerButton" Content="Edit Player" Margin="31,974,0,0" VerticalAlignment="Top" Click="EditPlayerButton_Click"/>
+        <Button x:Name="RemovePlayerButton" Content="Remove Player" Margin="142,974,0,0" VerticalAlignment="Top" Click="RemovePlayerButton_Click"/>
+        <Button x:Name="CalculateCRButton" Content="Calculate team challange rating" Margin="283,974,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
