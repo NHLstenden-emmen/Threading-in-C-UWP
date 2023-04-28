@@ -48,7 +48,7 @@
             <Border BorderBrush="Gray" BorderThickness="1" Margin="0,0,0,0"/>
         </Grid>
         
-        <ListBox x:ConnectionId='28' x:Name="PlayerListbox" Margin="10,540,10,127"/>
+        <ListBox x:ConnectionId='28' x:Name="PlayerListbox" Margin="10,540,10,127"                              />
         <Button x:ConnectionId='29' x:Name="EditPlayerButton" Content="Edit Player" Margin="31,974,0,0" VerticalAlignment="Top"                               />
         <Button x:ConnectionId='30' x:Name="RemovePlayerButton" Content="Remove Player" Margin="142,974,0,0" VerticalAlignment="Top"                                 />
         <Button x:ConnectionId='31' x:Name="CalculateCRButton" Content="Calculate team challange rating" Margin="283,974,0,0" VerticalAlignment="Top"/>

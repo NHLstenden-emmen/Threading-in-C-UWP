@@ -40,12 +40,15 @@ namespace Threading_in_C_UWP.Forms
 
         public bool isMasterOverrideText()
         {
-            //TODO
-            //if (masterOverrideCheckbox.IsChecked == null)
-            //{
-            //    return false;
-            //} else if (masterOverrideCheckbox.IsChecked as bool)
-            return false;
+            
+            if (masterOverrideCheckbox.IsChecked == null || masterOverrideCheckbox.IsChecked == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void obstacleButton_Click(object sender, EventArgs e)
@@ -163,7 +166,6 @@ namespace Threading_in_C_UWP.Forms
 
         private void SelectMap(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("1");
             RichEditBox richTextBox = sender as RichEditBox;
             if (richTextBox.Tag == null)
             {

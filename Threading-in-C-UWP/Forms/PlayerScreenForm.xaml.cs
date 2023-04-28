@@ -96,8 +96,6 @@ namespace Threading_in_C_UWP.Forms
                 {
                     return;
                 };
-                Debug.WriteLine("Nieuwe shit");
-                Debug.WriteLine(InputHealth.SelectedIndex);
                 var player = new Player(playerIndex, InputName.Text,
                     InputHealth.SelectedIndex,
                     InputMovement.SelectedIndex,

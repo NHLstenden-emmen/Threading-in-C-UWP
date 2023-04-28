@@ -21,6 +21,7 @@ using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static System.Net.Mime.MediaTypeNames;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -40,7 +41,7 @@ namespace Threading_in_C_UWP
             this.InitializeComponent();
             ApplicationView.PreferredLaunchViewSize = new Size(960, 1080);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-            //StartPlayerboard();
+            //StartPlayerboard();       TODO
         }
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -63,7 +64,6 @@ namespace Threading_in_C_UWP
         private void NavView_ItemInvoked(NavigationView sender,
                                  NavigationViewItemInvokedEventArgs args)
         {
-            Debug.WriteLine("2");
             if (args.IsSettingsInvoked == true)
             {
                 NavView_Navigate("settings", args.RecommendedNavigationTransitionInfo);
@@ -121,6 +121,11 @@ namespace Threading_in_C_UWP
         {
             turnCounter = 0;
             TurnCounter.Content = turnCounter.ToString();
+        }
+
+        private void ContentFrame_Loaded(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Content = new Home();
         }
     }
 }

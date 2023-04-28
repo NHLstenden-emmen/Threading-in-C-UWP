@@ -9,7 +9,11 @@ Assets\Dice\D8.png
 Assets\DnD-Symbol.png
 Assets\LockScreenLogo.scale-200.png
 Assets\magicitemcards_template_front_poker.jpg
+Assets\SplashScreen.scale-100.png
+Assets\SplashScreen.scale-125.png
+Assets\SplashScreen.scale-150.png
 Assets\SplashScreen.scale-200.png
+Assets\SplashScreen.scale-400.png
 Assets\Square150x150Logo.scale-200.png
 Assets\Square44x44Logo.scale-200.png
 Assets\Square44x44Logo.targetsize-24_altform-unplated.png
@@ -18,7 +22,6 @@ Assets\tempLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 Board\PlayerBoard.xbf
-Forms\DisplayLootScreenForm.xbf
 Forms\Home.xbf
 Forms\LootScreenForm.xbf
 Forms\MapScreenForm.xbf
