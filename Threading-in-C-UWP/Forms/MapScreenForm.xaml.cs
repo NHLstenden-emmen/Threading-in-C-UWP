@@ -36,6 +36,11 @@ namespace Threading_in_C_UWP.Forms
                 MapExampleEight,
                 MapExampleNine
             };
+            for (int i = 1;i <= richTextBoxes.Length;i++)
+            {
+                AmountOfMaps.Items.Add(i);
+            }
+            AmountOfMaps.SelectedIndex = 0;
         }
 
         public bool isMasterOverrideText()

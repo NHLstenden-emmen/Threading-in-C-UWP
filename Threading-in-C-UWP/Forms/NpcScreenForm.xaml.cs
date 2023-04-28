@@ -39,6 +39,12 @@ namespace Threading_in_C_UWP.Forms
             InitializeComponent();
             RetrieveNpcsFromDatabase();
             AddNpcsToList();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                AmountOfNPCs.Items.Add(i);
+            }
+            AmountOfNPCs.SelectedIndex = 0;
         }
 
         // Retrieves all the npcs from the db and puts them in the npcs list

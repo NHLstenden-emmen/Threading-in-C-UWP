@@ -30,6 +30,12 @@ namespace Threading_in_C_UWP.Forms
             this.InitializeComponent();
             RetrieveItemsFromDatabase();
             AddItemsToList();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                AmountOfItems.Items.Add(i);
+            }
+            AmountOfItems.SelectedIndex = 0;
         }
 
         // Retrieves all the items from the db and puts them in the items list

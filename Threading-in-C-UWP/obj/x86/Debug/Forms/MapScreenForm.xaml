@@ -10,7 +10,7 @@
 
     <Grid Width="960">
         <Button x:ConnectionId='2' Name="button2" Content="Generate"  VerticalAlignment="Top" Margin="547,40,0,0"                                 />
-        <TextBox x:ConnectionId='3' x:Name="AmountOfMaps" HorizontalAlignment="Left" Margin="476,40,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+        <ComboBox x:ConnectionId='3' x:Name="AmountOfMaps" HorizontalAlignment="Left" Margin="476,40,0,0" Text="1" VerticalAlignment="Top"/>
         <CheckBox x:ConnectionId='4' Name="masterOverrideCheckbox" Content="Master Override" Margin="713,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.051,1.477"/>
         <TextBox x:ConnectionId='5' Name="objectNameBox" HorizontalAlignment="Left" Margin="103,40,0,0" TextWrapping="Wrap" Text="Obstacle Name" VerticalAlignment="Top" RenderTransformOrigin="0.483,-0.391"/>
         <Button x:ConnectionId='6' Name="obstacleButton" Content="Place Obstacle" Margin="227,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.636,-1.435"/>

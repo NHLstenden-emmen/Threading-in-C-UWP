@@ -30,6 +30,12 @@ namespace Threading_in_C_UWP.Forms
             InitializeComponent();
             RetrieveEnemiesFromDatabase();
             AddEnemiesToList();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                AmountOfMonsters.Items.Add(i);
+            }
+            AmountOfMonsters.SelectedIndex = 0;
         }
 
         // Retrieves all the enemies from the db and puts them in the enemies list

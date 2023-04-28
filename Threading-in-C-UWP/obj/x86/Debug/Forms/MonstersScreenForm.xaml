@@ -11,7 +11,7 @@
     <Grid>
         <Button x:ConnectionId='2' Content="Delete All"  VerticalAlignment="Top" Margin="302,37,0,0"                             RenderTransformOrigin="0.931,0.547"/>
         <Button x:ConnectionId='3' Content="Generate"  VerticalAlignment="Top" Margin="0,37,0,0"                                     HorizontalAlignment="Center"/>
-        <TextBox x:ConnectionId='4' x:Name="AmountOfMonsters" HorizontalAlignment="Left" Margin="579,37,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+        <ComboBox x:ConnectionId='4' x:Name="AmountOfMonsters" HorizontalAlignment="Left" Margin="579,37,0,0" VerticalAlignment="Top"/>
         <ListBox x:ConnectionId='5' Margin="10,100,10,10" x:Name="SavedMonstersListBox"                                                 />
     </Grid>
 </Page>
