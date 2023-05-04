@@ -259,7 +259,11 @@ namespace Threading_in_C_UWP.Board
             setUpBoard();
 
             Tile tile = (Tile)tileArray[0, 0].Tag;
-            tile.setPlaceable(new Player(0, "Test", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "Demon", "test"));
+            tile.setPlaceable(new Player(0, "Roan", 10, 10, 3, 10, 10, 10, 10, 10, 10, 10, 10, "Demon", "test"));
+            Tile tile2 = (Tile)tileArray[0, 1].Tag;
+            tile2.setPlaceable(new Player(0, "Simchaja", 10, 3, 10, 10, 10, 10, 10, 10, 10, 10, 10, "Demon", "test"));
+            Tile tile3 = (Tile)tileArray[5, 4].Tag;
+            tile3.setPlaceable(new Obstacle("Tree"));
             updateBoard();
 
             // Import initial basic setup from default.xml
@@ -435,7 +439,7 @@ namespace Threading_in_C_UWP.Board
             }
         }
 
-        public void importBoard(String path = "../../Resources/XML/Default.xml")
+        public void importBoard(String path = "../../../../Resources/XML/Default.xml")
         {
             // clear board
             foreach (Button button in tileArray)
