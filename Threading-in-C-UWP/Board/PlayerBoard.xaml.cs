@@ -34,6 +34,7 @@ namespace Threading_in_C_UWP.Board
         {
             this.InitializeComponent();
             PlayerBoard.instance = this;
+            this.initiateBasicSetup();
         }
         internal void ChangeLocation(int selectedScreen)
         {
@@ -45,42 +46,57 @@ namespace Threading_in_C_UWP.Board
             //WindowState = FormWindowState.Maximized;
         }
 
-
         private void setUpBoard()
         {
-            //creates the tiles in the board, based on the display size that is used for the game
-            //the board that will be created is a grid of 16 by 9, with all the tiles being 80*80 pixels large
-
-            int initialX = 0;
-            int initialY = 0;
-
-            //initialize tile array with the correct dimentions
-            tileArray = new Button[gridheight, gridwidth];
-
-            //creates the buttons for the board and fills tile array with empty tiles
-            for (int i = 0; i < gridheight; i++)
             {
-                for (int j = 0; j < gridwidth; j++)
+                //creates the tiles in the board, based on the display size that is used for the game
+                //the board that will be created is a grid of 16 by 9, with all the tiles being 80*80 pixels large
+
+                int initialX = 0;
+                int initialY = 0;
+
+                //initialize tile array with the correct dimensions
+                tileArray = new Button[gridheight, gridwidth];
+
+                // Get the Grid control from XAML by its name
+                Grid boardCanvas = (Grid)FindName("myGrid");
+
+                //creates the buttons for the board and fills tile array with empty tiles
+                for (int i = 0; i < gridheight; i++)
                 {
-                    //creates button and sets all atributes
-                    Button button = new Button();
-                    //this.Controls.Add(button);
-                    button.Height = tileSize;
-                    button.Width = tileSize;
-                    button.Translation = new Vector3(initialX, initialY, 1);
-                    button.Click += this.boardClick;
-                    button.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+                    for (int j = 0; j < gridwidth; j++)
+                    {
+                        //creates button and sets all attributes
+                        Button button = new Button();
+                        button.Height = tileSize;
+                        button.Width = tileSize;
+                        button.Margin = new Thickness(initialX, initialY, 0, 0);
+                        button.Click += boardClick;
+                        button.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+                        button.Content = "test";
+                        button.HorizontalAlignment = HorizontalAlignment.Left;
+                        button.VerticalAlignment = VerticalAlignment.Top;
 
-                    Tile tile = new Tile(j, i);
-                    button.Tag = tile;
+                        Tile tile = new Tile(j, i);
+                        button.Tag = tile;
 
-                    //adds button with tag to the array
-                    tileArray[i, j] = button;
+                        //adds button with tag to the array
+                        tileArray[i, j] = button;
 
-                    initialX += tileSize;
+                        //create a border control with a black stroke and add the button to the border
+                        Border border = new Border();
+                        border.BorderThickness = new Thickness(1);
+                        border.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Black);
+                        border.Child = button;
+
+                        //adds border with button to the Grid control
+                        myGrid.Children.Add(border);
+
+                        initialX += tileSize;
+                    }
+                    initialX = 0;
+                    initialY += tileSize;
                 }
-                initialX = 0;
-                initialY += tileSize;
             }
         }
 
@@ -229,7 +245,7 @@ namespace Threading_in_C_UWP.Board
             updateBoard();
         }
 
-        public void initiateBasicSetup(int SelectedScreen)
+        public void initiateBasicSetup()
         {
             // Get the selected screen
             
@@ -242,7 +258,7 @@ namespace Threading_in_C_UWP.Board
             setUpBoard();
 
             // Import initial basic setup from default.xml
-            importBoard();
+            //importBoard();
         }
 
         private List<Tile> getAllPosibleMoves(Moveable moveable, Tile location)

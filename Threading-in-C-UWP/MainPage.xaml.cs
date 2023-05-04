@@ -41,7 +41,7 @@ namespace Threading_in_C_UWP
             this.InitializeComponent();
             ApplicationView.PreferredLaunchViewSize = new Size(960, 1080);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-            //StartPlayerboard();       TODO
+            StartPlayerboard();
         }
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)

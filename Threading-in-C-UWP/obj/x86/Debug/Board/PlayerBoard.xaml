@@ -8,8 +8,8 @@
     mc:Ignorable="d"
     Background="White">
     <!--Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
-    <Grid>
-
+    <Grid x:ConnectionId='2' x:Name="myGrid">
+        
     </Grid>
 </Page>
 

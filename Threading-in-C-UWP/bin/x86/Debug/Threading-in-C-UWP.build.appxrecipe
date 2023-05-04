@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-M8R8H1T</Machine>
-    <WindowsUser>simch</WindowsUser>
+    <Machine>LAPTOP-05GDLFIT</Machine>
+    <WindowsUser>roanm</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,170 +10,170 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>2d0eb646-1de8-4e86-a779-38991fa1f803</PackageIdentityName>
     <PackageIdentityPublisher>CN=simch</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Threading-in-C-UWP.exe">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Threading-in-C-UWP.exe">
       <PackagePath>entrypoint\Threading-in-C-UWP.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\microsoft.data.sqlite.core\7.0.5\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
+    <AppxPackagedFile Include="C:\Users\roanm\.nuget\packages\microsoft.data.sqlite.core\7.0.5\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
       <PackagePath>Microsoft.Data.Sqlite.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\newtonsoft.json\13.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\roanm\.nuget\packages\newtonsoft.json\13.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\sqlitepclraw.bundle_e_sqlite3\2.1.4\lib\netstandard2.0\SQLitePCLRaw.batteries_v2.dll">
+    <AppxPackagedFile Include="C:\Users\roanm\.nuget\packages\sqlitepclraw.bundle_e_sqlite3\2.1.4\lib\netstandard2.0\SQLitePCLRaw.batteries_v2.dll">
       <PackagePath>SQLitePCLRaw.batteries_v2.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\sqlitepclraw.core\2.1.4\lib\netstandard2.0\SQLitePCLRaw.core.dll">
+    <AppxPackagedFile Include="C:\Users\roanm\.nuget\packages\sqlitepclraw.core\2.1.4\lib\netstandard2.0\SQLitePCLRaw.core.dll">
       <PackagePath>SQLitePCLRaw.core.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.4\runtimes\win10-x86\nativeassets\uap10.0\e_sqlite3.dll">
+    <AppxPackagedFile Include="C:\Users\roanm\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.4\runtimes\win10-x86\nativeassets\uap10.0\e_sqlite3.dll">
       <PackagePath>e_sqlite3.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\sqlitepclraw.provider.e_sqlite3\2.1.4\lib\netstandard2.0\SQLitePCLRaw.provider.e_sqlite3.dll">
+    <AppxPackagedFile Include="C:\Users\roanm\.nuget\packages\sqlitepclraw.provider.e_sqlite3\2.1.4\lib\netstandard2.0\SQLitePCLRaw.provider.e_sqlite3.dll">
       <PackagePath>SQLitePCLRaw.provider.e_sqlite3.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+    <AppxPackagedFile Include="C:\Users\roanm\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22000.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\magicitemcards_template_front_poker.jpg">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\magicitemcards_template_front_poker.jpg">
       <PackagePath>Assets\magicitemcards_template_front_poker.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Datasets\DungeonDB.mdf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Datasets\DungeonDB.mdf">
       <PackagePath>Datasets\DungeonDB.mdf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D10.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D10.png">
       <PackagePath>Assets\Dice\D10.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D100.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D100.png">
       <PackagePath>Assets\Dice\D100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D12.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D12.png">
       <PackagePath>Assets\Dice\D12.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D20.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D20.png">
       <PackagePath>Assets\Dice\D20.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D4.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D4.png">
       <PackagePath>Assets\Dice\D4.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D6.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D6.png">
       <PackagePath>Assets\Dice\D6.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D8.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Dice\D8.png">
       <PackagePath>Assets\Dice\D8.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\DnD-Symbol.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\DnD-Symbol.png">
       <PackagePath>Assets\DnD-Symbol.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-125.png">
       <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-150.png">
       <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\tempLogo.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\tempLogo.png">
       <PackagePath>Assets\tempLogo.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Threading-in-C-UWP.xr.xml">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Threading-in-C-UWP.xr.xml">
       <PackagePath>Threading-in-C-UWP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Board\PlayerBoard.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Board\PlayerBoard.xbf">
       <PackagePath>Board\PlayerBoard.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\Home.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\Home.xbf">
       <PackagePath>Forms\Home.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\LootScreenForm.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\LootScreenForm.xbf">
       <PackagePath>Forms\LootScreenForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MapScreenForm.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MapScreenForm.xbf">
       <PackagePath>Forms\MapScreenForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MonstersScreenForm.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MonstersScreenForm.xbf">
       <PackagePath>Forms\MonstersScreenForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\NpcScreenForm.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\NpcScreenForm.xbf">
       <PackagePath>Forms\NpcScreenForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\PlayerScreenForm.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\PlayerScreenForm.xbf">
       <PackagePath>Forms\PlayerScreenForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\SettingsScreenForm.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\SettingsScreenForm.xbf">
       <PackagePath>Forms\SettingsScreenForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22000.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Core\Threading-in-C-UWP.exe">
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Core\Threading-in-C-UWP.exe">
       <PackagePath>Threading-in-C-UWP.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
