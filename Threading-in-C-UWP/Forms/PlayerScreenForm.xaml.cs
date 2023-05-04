@@ -126,7 +126,7 @@ namespace Threading_in_C_UWP.Forms
                 PlayerListbox.Items.Insert(player.PlayerIndex, player.ToString());
                 ClearPlayerFields();
 
-                //PlayerBoard.instance.placePlaceableOnPossibleTile(player);
+                PlayerBoard.instance.placePlaceableOnPossibleTile(player);
             }
         }
 
@@ -175,7 +175,7 @@ namespace Threading_in_C_UWP.Forms
 
         private void PlayerListbox_Loaded(object sender, RoutedEventArgs e)
         {
-            //players = PlayerBoard.instance.getPlayers();      TODO
+            players = PlayerBoard.instance.getPlayers();
             playerIndex = 0;
             foreach (Player player in players)
             {
@@ -192,7 +192,7 @@ namespace Threading_in_C_UWP.Forms
                 Player player = players[PlayerListbox.SelectedIndex];
                 players.Remove(player);
                 PlayerListbox.Items.Remove(player.ToString());
-                //PlayerBoard.instance.removeEntity(player);    TODO
+                PlayerBoard.instance.removeEntity(player);
             }
         }
     }

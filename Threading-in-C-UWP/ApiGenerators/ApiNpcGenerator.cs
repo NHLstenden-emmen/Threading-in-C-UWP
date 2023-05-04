@@ -54,7 +54,7 @@ namespace Threading_in_C_UWP.ApiGenerators
             int charisma = random.Next(31);
 
             int ar = random.Next(31);
-            int bp = 0; // TODO consult Kevin to talk about proficiency
+            int bp = 0;
 
             string race = randomRace;
             string characterClass = GetRandomClassAspects();

@@ -63,6 +63,7 @@ namespace Threading_in_C_UWP.Forms
 
         public Placeable[,] generateRandomMap()
         {
+            Debug.WriteLine("Generating map");
             ThreadLocal<Random> rand = new ThreadLocal<Random>(() => new Random());
             Random rnd = rand.Value;
             Placeable[,] map = new Placeable[PlayerBoard.instance.gridheight, PlayerBoard.instance.gridwidth];
@@ -109,7 +110,7 @@ namespace Threading_in_C_UWP.Forms
         {
             Placeable[,] result = new Placeable[PlayerBoard.instance.gridheight, PlayerBoard.instance.gridwidth];
             List<Placeable[,]> mapList = new List<Placeable[,]>();
-            int numMaps = Int32.Parse(AmountOfMaps.Text);
+            int numMaps = AmountOfMaps.SelectedIndex + 1;
             Object randLock = new Object();
             ManualResetEvent[] events = new ManualResetEvent[numMaps];
 
@@ -137,8 +138,10 @@ namespace Threading_in_C_UWP.Forms
             waitThread.Start();
             waitThread.Join();
 
-            for (int mapId = 0; mapId < Int32.Parse(AmountOfMaps.Text); mapId++)
+            Debug.WriteLine("Amount selected: " + AmountOfMaps.SelectedIndex);
+            for (int mapId = 0; mapId < AmountOfMaps.SelectedIndex + 1; mapId++)
             {
+                Debug.WriteLine("mapID: " + mapId);
                 fillDisplayMap(richTextBoxes[mapId], mapList[mapId]);
             }
         }
@@ -203,7 +206,7 @@ namespace Threading_in_C_UWP.Forms
             foreach (RichEditBox textBox in richTextBoxes)
             {
                 textBox.Tag = null;
-                textBox.Document.SetText(Windows.UI.Text.TextSetOptions.None, "");
+                //textBox.Document.SetText(Windows.UI.Text.TextSetOptions.None, "");
             }
         }
 

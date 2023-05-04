@@ -207,7 +207,7 @@ namespace Threading_in_C_UWP.Board
             }
             else
             {
-                PointerRoutedEventArgs me = (PointerRoutedEventArgs)e;
+                RoutedEventArgs me = (RoutedEventArgs)e;
                 Button button = (Button)sender;
 
                 //get the tile from the button

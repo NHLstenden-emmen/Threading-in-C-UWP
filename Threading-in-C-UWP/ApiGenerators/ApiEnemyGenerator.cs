@@ -65,7 +65,7 @@ namespace Threading_in_C_UWP.ApiGenerators
             int charisma = (int)enemyJson["charisma"];
 
             int ar = (int)enemyJson["armor_class"];
-            int bp = 0; // TODO consult Kevin to talk about proficiency
+            int bp = 0;
 
             string cr = (string)enemyJson["challenge_rating"];
 

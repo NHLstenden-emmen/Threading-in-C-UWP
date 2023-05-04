@@ -34,7 +34,6 @@ namespace Threading_in_C_UWP.ApiGenerators
             OpenFiveApiRequest.con.Close();
         }
 
-        // TODO, first check if rarity is available, if not, use getRarity method
         public static Item Parse(string rarity = null)
         {
             Random random = new Random();
@@ -49,9 +48,9 @@ namespace Threading_in_C_UWP.ApiGenerators
             if (rarityToken == null) itemRarity = GetRarity(random.Next(0, 5));
 
             int value = getValue(itemRarity, random);
-            string description = (string)itemJson["description"] ?? null; // TODO: See where we can get this from
+            string description = (string)itemJson["description"] ?? null;
             List<string> properties = ExtractProperties(itemJson);
-            List<string> drawbacks = itemJson["drawbacks"]?.ToObject<List<string>>() ?? new List<string>(); // TODO: See where we can get this from
+            List<string> drawbacks = itemJson["drawbacks"]?.ToObject<List<string>>() ?? new List<string>();
             List<string> requirements = ExtractRequirements(itemJson, type, random);
             string history = (string)itemJson["history"] ?? null;
 
@@ -141,8 +140,6 @@ namespace Threading_in_C_UWP.ApiGenerators
             }
         }
 
-        // Possible TO DO: add it so that if no requirements are found, you can generate them
-        // TODO: Improve code
         private static List<string> ExtractRequirements(JToken itemJson, string Type, Random random)
         {
             // Gets requirements from an item

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -112,7 +113,7 @@ namespace Threading_in_C_UWP.Forms
 
         private void GenerateNPCButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateThreads((int)Int32.Parse(AmountOfNPCs.Text));
+            CreateThreads((int)AmountOfNPCs.SelectedIndex + 1);
             CleanupThreads();
         }
 
