@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
+using System.Reflection;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Threading_in_C_UWP.Board.placeable;
+using Threading_in_C_UWP.Equipment;
 using Threading_in_C_UWP.Forms;
 using Threading_in_C_UWP.Players;
 using Windows.Devices.Input;
@@ -495,6 +498,17 @@ namespace Threading_in_C_UWP.Board
                     return;
                 };
             }
+        }
+
+        public async Task DisplayLootTextAsync(List<Item> items, int index)
+        {
+            ContentDialog lootItemDialog = new ContentDialog()
+            {
+                Title = "Loot found!",
+                Content = items[index].ToString(),
+                CloseButtonText = "Ok"
+            };
+            await lootItemDialog.ShowAsync();
         }
     }
 }

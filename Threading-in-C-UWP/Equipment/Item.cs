@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Threading_in_C_UWP.Equipment
 {
-    internal class Item
+    public class Item
     {
         public override string ToString()
         {

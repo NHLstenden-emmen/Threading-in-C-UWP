@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using Threading_in_C_UWP.ApiGenerators;
+using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Equipment;
 using Threading_in_C_UWP.OpenFiveApi;
 using Windows.UI.Xaml;
@@ -243,30 +244,10 @@ namespace Threading_in_C_UWP.Forms
             AddItemsToList();
         }
 
-        private void SavedItemsListBox_DoubleClick(object sender, EventArgs e)
-        {
-            int index = ((ListBox)sender).SelectedIndex;
-            //DisplayLootScreenForm displayLootScreenForm = new DisplayLootScreenForm(items[index].ToFancyString());
-            //displayLootScreenForm.Show();
-            //Point point = Screen.AllScreens[MyApplicationContext.screenOfPlayerboard].WorkingArea.Location;
-            //point.X += 456;
-            //point.Y += 256;
-            //displayLootScreenForm.Location = point;
-
-        }
-
         private async void SavedItemsListBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            Debug.WriteLine(this.Parent);
-            Debug.WriteLine("tapped");
-            int index = this.SavedItemsListBox.SelectedIndex;
-            ContentDialog lootItemDialog = new ContentDialog()
-            {
-                Title = "Loot found!",
-                Content = items[index].ToString(),
-                CloseButtonText = "Ok"
-            };
-            await lootItemDialog.ShowAsync();
+            Debug.WriteLine("test"); //todo fix this why is the content display still on the wrong page
+            await PlayerBoard.instance.DisplayLootTextAsync(items, this.SavedItemsListBox.SelectedIndex);
         }
     }
 }
