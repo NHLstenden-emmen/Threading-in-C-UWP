@@ -145,6 +145,7 @@ namespace Threading_in_C_UWP.Board
             }
         }
 
+
         private void boardClick(object sender, RoutedEventArgs e)
         {
             if (MapScreenForm.instance == null || !MapScreenForm.instance.isMasterOverrideText())
@@ -256,6 +257,10 @@ namespace Threading_in_C_UWP.Board
             //this.Size = selectedScreen.Bounds.Size;
 
             setUpBoard();
+
+            Tile tile = (Tile)tileArray[0, 0].Tag;
+            tile.setPlaceable(new Player(0, "Test", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "Demon", "test"));
+            updateBoard();
 
             // Import initial basic setup from default.xml
             //importBoard();
