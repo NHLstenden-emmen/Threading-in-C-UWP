@@ -118,7 +118,7 @@ namespace Threading_in_C_UWP.Forms
 
         private void GenerateItemButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateThreads(Int32.Parse(AmountOfItems.Text));
+            CreateThreads(AmountOfItems.SelectedIndex + 1);
             CleanupThreads();
         }
 

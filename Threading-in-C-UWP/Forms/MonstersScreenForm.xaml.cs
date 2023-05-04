@@ -95,7 +95,7 @@ namespace Threading_in_C_UWP.Forms
 
         private void GenerateMonsterButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateThreads((int)Int32.Parse(AmountOfMonsters.Text));
+            CreateThreads(AmountOfMonsters.SelectedIndex + 1);
             CleanupThreads();
         }
 
