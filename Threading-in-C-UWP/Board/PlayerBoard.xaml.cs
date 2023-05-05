@@ -431,7 +431,7 @@ namespace Threading_in_C_UWP.Board
                 }
                 // generate time for filename
                 DateTime now = DateTime.Now;
-                String path = "../../Resources/XML/DND" + now.ToString("yyyyMMdd_hhmmss") + ".xml";
+                String path = "../../Assets/XML/DND" + now.ToString("yyyyMMdd_hhmmss") + ".xml";
                 //path = "../../Resources/XML/Default.xml";
 
                 // remove all <xml> tags
@@ -442,7 +442,7 @@ namespace Threading_in_C_UWP.Board
             }
         }
 
-        public void importBoard(String path = "../../../../Resources/XML/Default.xml")
+        public void importBoard(String path = "../../../../Assets/XML/Default.xml")
         {
             // clear board
             foreach (Button button in tileArray)

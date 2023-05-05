@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Threading_in_C_UWP.Board;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,19 +35,16 @@ namespace Threading_in_C_UWP.Forms
             MainPage.Instance.ResetTurnCounter();
         }
 
-        private void ImportGameButton_Click(object sender, RoutedEventArgs e)
+        private async void ImportGameButton_Click(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            //openFileDialog1.InitialDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, "../../Resources/XML"));
-            //openFileDialog1.Title = "Import Game";
-            //openFileDialog1.DefaultExt = "xml";
-            //openFileDialog1.Filter = "XML files (*.xml)|*.xml";
-            //openFileDialog1.CheckFileExists = true;
-            //openFileDialog1.CheckPathExists = true;
-            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    PlayerBoard.instance.importBoard(openFileDialog1.FileName);
-            //}
+            FileOpenPicker filePicker = new Windows.Storage.Pickers.FileOpenPicker(); 
+            filePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            //filePicker.SuggestedStartLocation = "../../Assets/XML/DND";
+            //filePicker.InitialDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.StartupPath, "../../Resources/XML"));
+            filePicker.FileTypeFilter.Add(".xml");
+            Windows.Storage.StorageFile file = await filePicker.PickSingleFileAsync();
+            Debug.WriteLine(file.Path);
+            PlayerBoard.instance.importBoard(file.Path);
         }
 
         private void ExportGameButton_Click(object sender, RoutedEventArgs e)

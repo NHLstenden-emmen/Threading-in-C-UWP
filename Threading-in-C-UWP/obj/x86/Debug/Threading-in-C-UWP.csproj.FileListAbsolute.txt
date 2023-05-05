@@ -189,3 +189,4 @@ C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\MultipleQualifiersP
 C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\ProjectArchitectures.txt
 C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637934950560000000.json
 C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637934986560000000.json
+D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637934950560000000.json
