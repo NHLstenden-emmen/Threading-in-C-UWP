@@ -24,7 +24,6 @@ namespace Threading_in_C_UWP.Forms
     /// </summary>
     public sealed partial class Home : Page
     {
-        private Button currentButton;
         private readonly OpenFiveApiRequest apiRequest = new OpenFiveApiRequest();
         private ApiEnemyGenerator apiEnemyGenerator = new ApiEnemyGenerator();
         private ApiNpcGenerator apiNpcGenerator = new ApiNpcGenerator();
@@ -107,8 +106,6 @@ namespace Threading_in_C_UWP.Forms
             {
                 string nameComboBox = "comboBoxDiceRoll" + i.ToString();
                 ComboBox comboBox = (ComboBox)this.FindName(nameComboBox);
-                Debug.WriteLine(nameComboBox);
-                Debug.WriteLine(comboBox.Name);
                 String comboBoxName = "";
                 if (comboBox.SelectedValue != null)
                 {
@@ -203,7 +200,7 @@ namespace Threading_in_C_UWP.Forms
             }
         }
 
-        private void btnAddNewDiceRoll_Click(object sender, RoutedEventArgs e)
+        private async void btnAddNewDiceRoll_Click(object sender, RoutedEventArgs e)
         {
             Grid gridCopy = new Grid();
             if (createdGroupBoxes < 4)
@@ -224,7 +221,7 @@ namespace Threading_in_C_UWP.Forms
                     Content = "New group can't be added \r\nMax amount of groups reached",
                     CloseButtonText = "Ok"
                 };
-                maxRollsDialog.ShowAsync();
+                await maxRollsDialog.ShowAsync();
                 return;
             }
             createdGroupBoxes++;
@@ -235,8 +232,6 @@ namespace Threading_in_C_UWP.Forms
             gridCopy.VerticalAlignment = ComboboxGrid1.VerticalAlignment;
             gridCopy.Name = "ComboboxGrid" + createdGroupBoxes;
 
-            Debug.Write(ComboboxGrid1.Margin);
-            Debug.Write(gridCopy.Margin);
             HomeGrid.Children.Add(gridCopy);
             foreach (UIElement itemInGrid in ComboboxGrid1.Children)
             {
@@ -255,12 +250,10 @@ namespace Threading_in_C_UWP.Forms
                         ((ComboBox)newItem).Items.Add(dropdownItem);
                     }
                     ((ComboBox)newItem).SelectedIndex = 0;
-                    Debug.WriteLine(((ComboBox)newItem).Margin);
                 }
 
                 gridCopy.Children.Add(newItem);
             }
-            Debug.WriteLine("margin ");
         }
     }
 }

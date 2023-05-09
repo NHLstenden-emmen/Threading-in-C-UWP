@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Numerics;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Threading_in_C_UWP.Board.placeable;
 using Threading_in_C_UWP.Equipment;
 using Threading_in_C_UWP.Forms;
 using Threading_in_C_UWP.Players;
-using Windows.Devices.Input;
-using Windows.Foundation;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using static System.Net.WebRequestMethods;
 using static Threading_in_C_UWP.Converters.TileConverter;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -410,7 +405,7 @@ namespace Threading_in_C_UWP.Board
         }
 
         //export the drawables on all tiles
-        public void exportBoard()
+        public async Task exportBoard()
         {
             using (var stringWriter = new System.IO.StringWriter())
             {
@@ -429,45 +424,115 @@ namespace Threading_in_C_UWP.Board
                         }
                     }
                 }
-                // generate time for filename
-                DateTime now = DateTime.Now;
-                String path = "../../Assets/XML/DND" + now.ToString("yyyyMMdd_hhmmss") + ".xml";
-                //path = "../../Resources/XML/Default.xml";
 
                 // remove all <xml> tags
                 String replace = "<?xml version=\"1.0\" encoding=\"utf-16\"?>";
                 stringWriter.GetStringBuilder().Replace(replace, "");
                 stringWriter.Write("</TileList>");
-                System.IO.File.WriteAllText(path, replace + stringWriter.ToString());
+
+                // Code for saving to file
+                var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+                savePicker.SuggestedStartLocation =
+                    Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                // Dropdown of file types the user can save the file as
+                savePicker.FileTypeChoices.Add("DND-Save", new List<string>() { ".xml" });
+                // Default file name if the user does not type one in or select a file to replace
+                DateTime now = DateTime.Now;
+                savePicker.SuggestedFileName = "DND" + now.ToString("yyyyMMdd_hhmmss");
+
+                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    Windows.Storage.CachedFileManager.DeferUpdates(file);
+                    // write to file
+                    await Windows.Storage.FileIO.WriteTextAsync(file, stringWriter.ToString());
+                    Windows.Storage.Provider.FileUpdateStatus status =
+                        await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                    if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
+                    {
+                        ContentDialog exportFailedDialog = new ContentDialog()
+                        {
+                            Title = "Export Failed!",
+                            Content = "Game export Failed" +
+                            "Please try again.",
+                            CloseButtonText = "Ok"
+                        };
+                        await exportFailedDialog.ShowAsync();
+                    }
+                }
             }
         }
 
-        public void importBoard(String path = "../../../../Assets/XML/Default.xml")
+        public async Task importBoard()
         {
-            // clear board
-            foreach (Button button in tileArray)
-            {
-                Tile tile = button.Tag as Tile;
-                tile.setPlaceable(null);
-            }
-            // check if file exists
-            System.IO.File.Exists(path);
+            String xmlString = "";
 
-            // open file using xml reader
-            String defaultXMLString = System.IO.File.ReadAllText(path);
-            XmlSerializer serializer = new XmlSerializer(typeof(TileList));
-            using (TextReader reader = new StringReader(defaultXMLString))
+            // Read File
+            // open file picker for user to select save game to import
+            FileOpenPicker filePicker = new Windows.Storage.Pickers.FileOpenPicker();
+            filePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            filePicker.FileTypeFilter.Add(".xml");
+            Windows.Storage.StorageFile file = await filePicker.PickSingleFileAsync();
+            if (file != null && file.Name != null && file.Name.Substring(file.Name.Length - 4) == ".xml")
             {
-                TileList tileList = (TileList)serializer.Deserialize(reader);
-                List<Tile> tiles = tileList.Tiles;
-
-                // loop through all the tile found in the xml array and add them to the board
-                foreach (Tile tile in tiles)
+                // convert file into xml string so it can be passed as parameter to playerboard
+                String nextLine;
+                using (StreamReader reader = new StreamReader(await file.OpenStreamForReadAsync()))
                 {
-                    tileArray[tile.y, tile.x].Tag = tile;
+                    while ((nextLine = await reader.ReadLineAsync()) != null)
+                    {
+                        xmlString += nextLine;
+                    }
                 }
+
+                // clear board
+                foreach (Button button in tileArray)
+                {
+                    Tile tile = button.Tag as Tile;
+                    tile.setPlaceable(null);
+                }
+
+                // check if string not empty
+                if (xmlString == null || xmlString == "")
+                {
+                    ContentDialog importFailedDialog = new ContentDialog()
+                    {
+                        Title = "Import Failed!",
+                        Content = "Game Import Failed" +
+                        "Please select a DND save game.",
+                        CloseButtonText = "Ok"
+                    };
+                    await importFailedDialog.ShowAsync();
+                    return;
+                }
+
+                // read string into playerboard
+                XmlSerializer serializer = new XmlSerializer(typeof(TileList));
+                using (TextReader reader = new StringReader(xmlString))
+                {
+                    TileList tileList = (TileList)serializer.Deserialize(reader);
+                    List<Tile> tiles = tileList.Tiles;
+
+                    // loop through all the tile found in the xml array and add them to the board
+                    foreach (Tile tile in tiles)
+                    {
+                        tileArray[tile.y, tile.x].Tag = tile;
+                    }
+                }
+
+                updateBoard();
+            } else
+            {
+                ContentDialog importFailedDialog = new ContentDialog()
+                {
+                    Title = "Import Failed!",
+                    Content = "Game Import Failed" +
+                    "Please select a DND save game.",
+                    CloseButtonText = "Ok"
+                };
+                await importFailedDialog.ShowAsync();
             }
-            updateBoard();
+            
         }
 
         public List<Player> getPlayers()

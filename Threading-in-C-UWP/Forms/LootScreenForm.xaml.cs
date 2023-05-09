@@ -246,7 +246,6 @@ namespace Threading_in_C_UWP.Forms
 
         private async void SavedItemsListBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            Debug.WriteLine("test"); //todo fix this why is the content display still on the wrong page
             await PlayerBoard.instance.DisplayLootTextAsync(items, this.SavedItemsListBox.SelectedIndex);
         }
     }

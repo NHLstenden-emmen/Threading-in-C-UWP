@@ -20,6 +20,8 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\tempLogo.png
 Assets\Wide310x150Logo.scale-200.png
+Assets\XML\Default.xml
+Assets\XML\Test.xml
 App.xbf
 Board\PlayerBoard.xbf
 Forms\Home.xbf

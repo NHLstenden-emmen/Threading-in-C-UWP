@@ -189,6 +189,8 @@
     <Content Include="Assets\SplashScreen.scale-150.png" />
     <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Assets\tempLogo.png" />
+    <Content Include="Assets\XML\Default.xml" />
+    <Content Include="Assets\XML\Test.xml" />
     <Content Include="Datasets\DungeonDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

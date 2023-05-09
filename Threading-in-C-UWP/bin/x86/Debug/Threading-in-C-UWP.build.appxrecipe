@@ -131,6 +131,12 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\XML\Default.xml">
+      <PackagePath>Assets\XML\Default.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Assets\XML\Test.xml">
+      <PackagePath>Assets\XML\Test.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
