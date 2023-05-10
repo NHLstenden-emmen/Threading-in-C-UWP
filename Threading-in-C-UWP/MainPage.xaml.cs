@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Forms;
+using Windows.ApplicationModel.Core;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
@@ -31,6 +34,7 @@ namespace Threading_in_C_UWP
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             StartPlayerboard();
         }
+
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
@@ -91,12 +95,29 @@ namespace Threading_in_C_UWP
 
         private async void StartPlayerboard()
         {
-            AppWindow appWindow = await AppWindow.TryCreateAsync();
-            Frame appWindowContentFrame = new Frame();
-            appWindowContentFrame.Navigate(typeof(PlayerBoard));
-            ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
-            appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
-            await appWindow.TryShowAsync();
+        //    AppWindow appWindow = await AppWindow.TryCreateAsync();
+        //    Frame appWindowContentFrame = new Frame();
+        //    appWindowContentFrame.Navigate(typeof(PlayerBoard));
+        //    ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
+        //    appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
+
+
+            String projectorSelectorQuery = ProjectionManager.GetDeviceSelector();
+            var outputDevices = await DeviceInformation.FindAllAsync(projectorSelectorQuery);
+            int thisViewId;
+            int newViewId = 0;
+            DeviceInformation showDevice = outputDevices[1];
+            thisViewId = ApplicationView.GetForCurrentView().Id;
+            await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                Frame frame = new Frame();
+                frame.Navigate(typeof(PlayerBoard), null);
+                Window.Current.Content = frame;
+                Window.Current.Activate();
+                newViewId = ApplicationView.GetForCurrentView().Id;
+            });
+            await ProjectionManager.StartProjectingAsync(newViewId, thisViewId, showDevice);
+
         }
 
         private void AddTurn()
