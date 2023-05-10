@@ -1,17 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Threading_in_C_UWP.Board.placeable;
 using Threading_in_C_UWP.Equipment;
 using Threading_in_C_UWP.Forms;
 using Threading_in_C_UWP.Players;
+using Windows.ApplicationModel.Core;
 using Windows.Storage.Pickers;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 using static Threading_in_C_UWP.Converters.TileConverter;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -29,8 +36,11 @@ namespace Threading_in_C_UWP.Board
         int tileSize = 80;
         Button selectedButton = null;
         public static PlayerBoard instance;
+        public static CoreApplicationView playerBoardView;
         public PlayerBoard()
         {
+            Debug.WriteLine("Creation" + ApplicationView.GetForCurrentView().Id);
+            Debug.WriteLine("playerBoardView" + playerBoardView);
             this.InitializeComponent();
             PlayerBoard.instance = this;
             this.initiateBasicSetup();
@@ -43,6 +53,12 @@ namespace Threading_in_C_UWP.Board
             //WindowState = FormWindowState.Normal;
             //this.Location = Screen.AllScreens[selectedScreen].WorkingArea.Location;
             //WindowState = FormWindowState.Maximized;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            playerBoardView = (CoreApplicationView)e.Parameter;
+            base.OnNavigatedTo(e);
         }
 
         private void setUpBoard()
@@ -145,7 +161,7 @@ namespace Threading_in_C_UWP.Board
         }
 
 
-        private void boardClick(object sender, PointerRoutedEventArgs e)
+        private void boardClick(object sender, RoutedEventArgs e)
         {
             if (MapScreenForm.instance == null || !MapScreenForm.instance.isMasterOverrideText())
             {
@@ -252,10 +268,8 @@ namespace Threading_in_C_UWP.Board
             tile2.setPlaceable(new Player(0, "Simchaja", 10, 3, 10, 10, 10, 10, 10, 10, 10, 10, 10, "Demon", "test"));
             Tile tile3 = (Tile)tileArray[5, 4].Tag;
             tile3.setPlaceable(new Obstacle("Tree"));
-            updateBoard();
 
-            // Import initial basic setup from default.xml
-            //importBoard();
+            updateBoard();
         }
 
         private List<Tile> getAllPosibleMoves(Moveable moveable, Tile location)
@@ -380,18 +394,21 @@ namespace Threading_in_C_UWP.Board
             }
         }
 
-        public void placePlaceableOnPossibleTile(Placeable placeable)
+        public async void placePlaceableOnPossibleTile(Placeable placeable)
         {
-            foreach (Button button in tileArray)
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                Tile tile = (Tile)button.Tag;
-                if (tile.getPlaceable() == null)
+                foreach (Button button in tileArray)
                 {
-                    tile.setPlaceable(placeable);
-                    updateBoard();
-                    return;
+                    Tile tile = (Tile)button.Tag;
+                    if (tile.getPlaceable() == null)
+                    {
+                        tile.setPlaceable(placeable);
+                        updateBoard();
+                        return;
+                    }
                 }
-            }
+            });
         }
 
         //export the drawables on all tiles
@@ -457,7 +474,6 @@ namespace Threading_in_C_UWP.Board
         {
             String xmlString = "";
 
-            // Read File
             // open file picker for user to select save game to import
             FileOpenPicker filePicker = new Windows.Storage.Pickers.FileOpenPicker();
             filePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
@@ -476,11 +492,14 @@ namespace Threading_in_C_UWP.Board
                 }
 
                 // clear board
-                foreach (Button button in tileArray)
+                await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    Tile tile = button.Tag as Tile;
-                    tile.setPlaceable(null);
-                }
+                    foreach (Button button in tileArray)
+                    {
+                        Tile tile = button.Tag as Tile;
+                        tile.setPlaceable(null);
+                    }
+                });
 
                 // check if string not empty
                 if (xmlString == null || xmlString == "")
@@ -500,59 +519,74 @@ namespace Threading_in_C_UWP.Board
                 XmlSerializer serializer = new XmlSerializer(typeof(TileList));
                 using (TextReader reader = new StringReader(xmlString))
                 {
-                    TileList tileList = (TileList)serializer.Deserialize(reader);
-                    List<Tile> tiles = tileList.Tiles;
-
-                    // loop through all the tile found in the xml array and add them to the board
-                    foreach (Tile tile in tiles)
+                    await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        tileArray[tile.y, tile.x].Tag = tile;
-                    }
+                        TileList tileList = (TileList)serializer.Deserialize(reader);
+                        List<Tile> tiles = tileList.Tiles;
+
+                        // loop through all the tile found in the xml array and add them to the board
+                        foreach (Tile tile in tiles)
+                        {
+                            tileArray[tile.y, tile.x].Tag = tile;
+                        }
+                    });
                 }
 
-                updateBoard();
             } else
             {
-                ContentDialog importFailedDialog = new ContentDialog()
+                await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
                 {
-                    Title = "Import Failed!",
-                    Content = "Game Import Failed" +
-                    "Please select a DND save game.",
-                    CloseButtonText = "Ok"
-                };
-                await importFailedDialog.ShowAsync();
+                    ContentDialog importFailedDialog = new ContentDialog()
+                    {
+                        Title = "Import Failed!",
+                        Content = "Game Import Failed" +
+                        "Please select a DND save game.",
+                        CloseButtonText = "Ok"
+                    };
+                    await importFailedDialog.ShowAsync();
+                });
             }
-            
+
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                updateBoard();
+            });
         }
 
-        public List<Player> getPlayers()
+        public async Task<List<Player>> getPlayers()
         {
             List<Player> playerList = new List<Player>();
 
-            foreach (Button button in tileArray)
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                Tile tile = button.Tag as Tile;
-                if (tile.getPlaceable() != null && tile.getPlaceable().GetType() == typeof(Player))
+                foreach (Button button in tileArray)
                 {
-                    playerList.Add((Player)tile.getPlaceable());
-                };
-            }
+                    Tile tile = button.Tag as Tile;
+                    if (tile.getPlaceable() != null && tile.getPlaceable().GetType() == typeof(Player))
+                    {
+                        playerList.Add((Player)tile.getPlaceable());
+                    };
+                }
+            });
 
             return playerList;
         }
 
-        public void removeEntity(Entity entity)
+        public async void removeEntity(Entity entity)
         {
-            foreach (Button button in tileArray)
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                Tile tile = button.Tag as Tile;
-                if (tile.getPlaceable() != null && tile.getPlaceable().GetType() == entity.GetType() && tile.getPlaceable() == entity)
+                foreach (Button button in tileArray)
                 {
-                    tile.setPlaceable(null);
-                    updateBoard();
-                    return;
-                };
-            }
+                    Tile tile = button.Tag as Tile;
+                    if (tile.getPlaceable() != null && tile.getPlaceable().GetType() == entity.GetType() && tile.getPlaceable() == entity)
+                    {
+                        tile.setPlaceable(null);
+                        updateBoard();
+                        return;
+                    };
+                }
+            });
         }
 
         public async Task DisplayLootTextAsync(List<Item> items, int index)

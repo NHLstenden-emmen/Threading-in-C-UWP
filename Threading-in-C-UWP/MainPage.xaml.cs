@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Forms;
@@ -106,18 +107,28 @@ namespace Threading_in_C_UWP
             var outputDevices = await DeviceInformation.FindAllAsync(projectorSelectorQuery);
             int thisViewId;
             int newViewId = 0;
+            var current = Window.Current;
             DeviceInformation showDevice = outputDevices[1];
             thisViewId = ApplicationView.GetForCurrentView().Id;
-            await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            CoreApplicationView playerboardView = CoreApplication.CreateNewView();
+            await playerboardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Frame frame = new Frame();
-                frame.Navigate(typeof(PlayerBoard), null);
+                frame.Navigate(typeof(PlayerBoard), playerboardView);
                 Window.Current.Content = frame;
                 Window.Current.Activate();
                 newViewId = ApplicationView.GetForCurrentView().Id;
+                current = Window.Current;
+                
             });
             await ProjectionManager.StartProjectingAsync(newViewId, thisViewId, showDevice);
-
+            int view = ApplicationView.GetForCurrentView().Id;
+            Debug.WriteLine("current" + ApplicationView.GetForCurrentView().Id);
+            Debug.WriteLine("old" + thisViewId);
+            Debug.WriteLine("Nieuw" + newViewId);
+            Debug.WriteLine("current" + current);
+            Debug.WriteLine("Views" + CoreApplication.Views);
+            Debug.WriteLine("playerboardView" + playerboardView);
         }
 
         private void AddTurn()
