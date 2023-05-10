@@ -39,8 +39,6 @@ namespace Threading_in_C_UWP.Board
         public static CoreApplicationView playerBoardView;
         public PlayerBoard()
         {
-            Debug.WriteLine("Creation" + ApplicationView.GetForCurrentView().Id);
-            Debug.WriteLine("playerBoardView" + playerBoardView);
             this.InitializeComponent();
             PlayerBoard.instance = this;
         }
@@ -584,14 +582,18 @@ namespace Threading_in_C_UWP.Board
 
         public async Task DisplayLootTextAsync(List<Item> items, int index)
         {
-            ContentDialog lootItemDialog = new ContentDialog()
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
-                Title = "Loot found!",
-                Content = items[index].ToString(),
-                CloseButtonText = "Ok"
-            };
-            await lootItemDialog.ShowAsync();
+                ContentDialog lootItemDialog = new ContentDialog()
+                {
+                    Title = "Loot found!",
+                    Content = items[index].ToString(),
+                    CloseButtonText = "Ok"
+                };
+                await lootItemDialog.ShowAsync();
+            });
         }
+
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {

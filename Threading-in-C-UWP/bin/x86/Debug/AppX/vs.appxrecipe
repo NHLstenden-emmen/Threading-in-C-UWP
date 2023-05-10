@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-05-10T19:25:50.502</Modified>
+      <Modified>2023-05-10T19:51:50.409</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Threading-in-C-UWP.exe">
       <PackagePath>entrypoint\Threading-in-C-UWP.exe</PackagePath>
-      <Modified>2023-05-10T19:25:49.999</Modified>
+      <Modified>2023-05-10T19:51:49.867</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\simch\.nuget\packages\microsoft.data.sqlite.core\7.0.5\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
       <PackagePath>Microsoft.Data.Sqlite.dll</PackagePath>
@@ -190,43 +190,43 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.899</Modified>
+      <Modified>2023-05-10T19:51:49.759</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Board\PlayerBoard.xbf">
       <PackagePath>Board\PlayerBoard.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.900</Modified>
+      <Modified>2023-05-10T19:51:49.760</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\Home.xbf">
       <PackagePath>Forms\Home.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.901</Modified>
+      <Modified>2023-05-10T19:51:49.761</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\LootScreenForm.xbf">
       <PackagePath>Forms\LootScreenForm.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.902</Modified>
+      <Modified>2023-05-10T19:51:49.762</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MapScreenForm.xbf">
       <PackagePath>Forms\MapScreenForm.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.903</Modified>
+      <Modified>2023-05-10T19:51:49.763</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MonstersScreenForm.xbf">
       <PackagePath>Forms\MonstersScreenForm.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.904</Modified>
+      <Modified>2023-05-10T19:51:49.764</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\NpcScreenForm.xbf">
       <PackagePath>Forms\NpcScreenForm.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.906</Modified>
+      <Modified>2023-05-10T19:51:49.766</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\PlayerScreenForm.xbf">
       <PackagePath>Forms\PlayerScreenForm.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.892</Modified>
+      <Modified>2023-05-10T19:51:49.754</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\SettingsScreenForm.xbf">
       <PackagePath>Forms\SettingsScreenForm.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.907</Modified>
+      <Modified>2023-05-10T19:51:49.768</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-05-10T19:25:49.908</Modified>
+      <Modified>2023-05-10T19:51:49.768</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22000.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -238,7 +238,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Core\Threading-in-C-UWP.exe">
       <PackagePath>Threading-in-C-UWP.exe</PackagePath>
-      <Modified>2023-05-10T19:25:50.493</Modified>
+      <Modified>2023-05-10T19:51:50.397</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

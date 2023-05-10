@@ -13,7 +13,7 @@
         <ComboBox x:Name="AmountOfMaps" HorizontalAlignment="Left" Margin="476,40,0,0" Text="1" VerticalAlignment="Top"/>
         <CheckBox Name="masterOverrideCheckbox" Content="Master Override" Margin="713,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.051,1.477"/>
         <TextBox Name="objectNameBox" HorizontalAlignment="Left" Margin="103,40,0,0" TextWrapping="Wrap" Text="Obstacle Name" VerticalAlignment="Top" RenderTransformOrigin="0.483,-0.391"/>
-        <Button Name="obstacleButton" Content="Place Obstacle" Margin="227,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.636,-1.435"/>
+        <Button Name="obstacleButton" Content="Place Obstacle" Margin="227,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.636,-1.435" Click="obstacleButton_Click"/>
         <Grid Margin="0,100,0,0">
             <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="60,100,710,690" Name="MapExampleOne"/>
             <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="385,100,385,690" Name="MapExampleTwo"/>

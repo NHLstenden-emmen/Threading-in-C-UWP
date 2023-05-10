@@ -57,7 +57,7 @@ namespace Threading_in_C_UWP.Forms
             }
         }
 
-        private async void obstacleButton_Click(object sender, EventArgs e)
+        private async void obstacleButton_Click(object sender, RoutedEventArgs e)
         {
             await PlayerBoard.instance.placePlaceableOnPossibleTile(new Obstacle(objectNameBox.Text));
         }
@@ -206,7 +206,7 @@ namespace Threading_in_C_UWP.Forms
                 }
             });
 
-            PlayerBoard.instance.updateBoard();
+            await PlayerBoard.instance.updateBoard();
             foreach (RichEditBox textBox in richTextBoxes)
             {
                 textBox.Tag = null;
