@@ -125,32 +125,32 @@ namespace Threading_in_C_UWP.Board
                         }
                     }
                 }
-            });
 
-            foreach (Button button in tileArray)
-            {
-                Tile tile = (Tile)button.Tag;
-                if (tile.getPlaceable() == null)
+                foreach (Button button in tileArray)
                 {
-                    button.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
-                }
-                else if (tile.getPlaceable() is Obstacle)
-                {
-                    Obstacle obstacle = (Obstacle)tile.getPlaceable();
-                    switch (obstacle.type)
+                    Tile tile = (Tile)button.Tag;
+                    if (tile.getPlaceable() == null)
                     {
-                        case "Wall":
-                            button.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
-                            break;
-                        case "Tree":
-                            button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            break;
-                        case "Rock":
-                            button.Background = new SolidColorBrush(Windows.UI.Colors.Brown);
-                            break;
+                        button.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+                    }
+                    else if (tile.getPlaceable() is Obstacle)
+                    {
+                        Obstacle obstacle = (Obstacle)tile.getPlaceable();
+                        switch (obstacle.type)
+                        {
+                            case "Wall":
+                                button.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+                                break;
+                            case "Tree":
+                                button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                                break;
+                            case "Rock":
+                                button.Background = new SolidColorBrush(Windows.UI.Colors.Brown);
+                                break;
+                        }
                     }
                 }
-            }
+            });
         }
 
 
@@ -412,18 +412,21 @@ namespace Threading_in_C_UWP.Board
                 var serializer = new XmlSerializer(typeof(Tile));
                 stringWriter.Write("<TileList xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">");
                 // loop through playerboard
-                for (int i = 0; i < gridheight; i++)
+                await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    for (int j = 0; j < gridwidth; j++)
+                    for (int i = 0; i < gridheight; i++)
                     {
-                        // if the tile isn't empty convert tile to xml and add to the xml string
-                        Tile tile = (Tile)tileArray[i, j].Tag;
-                        if (tile.getPlaceable() != null && tile.getPlaceable().getDrawAble() != null)
+                        for (int j = 0; j < gridwidth; j++)
                         {
-                            serializer.Serialize(stringWriter, tile);
+                            // if the tile isn't empty convert tile to xml and add to the xml string
+                            Tile tile = (Tile)tileArray[i, j].Tag;
+                            if (tile.getPlaceable() != null && tile.getPlaceable().getDrawAble() != null)
+                            {
+                                serializer.Serialize(stringWriter, tile);
+                            }
                         }
                     }
-                }
+                });
 
                 // remove all <xml> tags
                 String replace = "<?xml version=\"1.0\" encoding=\"utf-16\"?>";

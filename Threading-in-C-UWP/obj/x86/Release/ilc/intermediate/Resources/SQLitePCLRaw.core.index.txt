@@ -1,0 +1,2 @@
+SQLitePCLRaw.core, Version=2.1.4.1835, Culture=neutral, PublicKeyToken=1488e028ca7ab535
+  ILLink.Descriptors.xml

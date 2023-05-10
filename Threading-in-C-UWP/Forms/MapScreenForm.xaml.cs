@@ -57,9 +57,9 @@ namespace Threading_in_C_UWP.Forms
             }
         }
 
-        private void obstacleButton_Click(object sender, EventArgs e)
+        private async void obstacleButton_Click(object sender, EventArgs e)
         {
-            PlayerBoard.instance.placePlaceableOnPossibleTile(new Obstacle(objectNameBox.Text));
+            await PlayerBoard.instance.placePlaceableOnPossibleTile(new Obstacle(objectNameBox.Text));
         }
 
         public Placeable[,] generateRandomMap()
