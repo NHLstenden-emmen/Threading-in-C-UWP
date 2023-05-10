@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\Github\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj": {}
+    "C:\\repos\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\Github\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj": {
+    "C:\\repos\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\Github\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj",
+        "projectUniqueName": "C:\\repos\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj",
         "projectName": "Threading-in-C-UWP",
-        "projectPath": "D:\\Programming\\Github\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj",
-        "packagesPath": "C:\\Users\\simch\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\Github\\Threading-in-C-UWP\\Threading-in-C-UWP\\obj\\",
+        "projectPath": "C:\\repos\\Threading-in-C-UWP\\Threading-in-C-UWP\\Threading-in-C-UWP.csproj",
+        "packagesPath": "C:\\Users\\roanm\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\Threading-in-C-UWP\\Threading-in-C-UWP\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\simch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\roanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

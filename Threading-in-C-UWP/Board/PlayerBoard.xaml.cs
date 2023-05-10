@@ -10,6 +10,7 @@ using Threading_in_C_UWP.Players;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using static Threading_in_C_UWP.Converters.TileConverter;
 
@@ -144,7 +145,7 @@ namespace Threading_in_C_UWP.Board
         }
 
 
-        private void boardClick(object sender, RoutedEventArgs e)
+        private void boardClick(object sender, PointerRoutedEventArgs e)
         {
             if (MapScreenForm.instance == null || !MapScreenForm.instance.isMasterOverrideText())
             {
@@ -205,40 +206,29 @@ namespace Threading_in_C_UWP.Board
             }
             else
             {
-                RoutedEventArgs me = (RoutedEventArgs)e;
                 Button button = (Button)sender;
 
                 //get the tile from the button
                 Tile tile = (Tile)button.Tag;
-
-                //TODO 
-                //if (me.Button == MouseButtons.Left)
-                if(true)
+                if (selectedButton == null)
                 {
-                    if (selectedButton == null)
-                    {
-                        selectedButton = button;
-                        button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                        return;
-                    }
+                    selectedButton = button;
+                    button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                    return;
+                }
 
-                    if (selectedButton == button)
-                    {
-                        selectedButton = null;
-                        button.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
-                        return;
-                    }
-
-                    Tile selectedTile = (Tile)selectedButton.Tag;
-                    tile.setPlaceable(selectedTile.getPlaceable());
-                    selectedTile.setPlaceable(null);
-                    selectedButton.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+                if (selectedButton == button)
+                {
                     selectedButton = null;
+                    button.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+                    return;
                 }
-                else
-                {
-                    tile.setPlaceable(null);
-                }
+
+                Tile selectedTile = (Tile)selectedButton.Tag;
+                tile.setPlaceable(selectedTile.getPlaceable());
+                selectedTile.setPlaceable(null);
+                selectedButton.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+                selectedButton = null;
             }
 
             updateBoard();
