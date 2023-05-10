@@ -250,6 +250,14 @@ namespace Threading_in_C_UWP.Forms
                         ((ComboBox)newItem).Items.Add(dropdownItem);
                     }
                     ((ComboBox)newItem).SelectedIndex = 0;
+                }else if (newItem.GetType() == typeof(Image))
+                {
+                    ((Image)newItem).Margin = ((Image)itemInGrid).Margin;
+                    ((Image)newItem).Width = ((Image)itemInGrid).Width;
+                    ((Image)newItem).Height = ((Image)itemInGrid).Height;
+                    ((Image)newItem).HorizontalAlignment = ((Image)itemInGrid).HorizontalAlignment;
+                    ((Image)newItem).VerticalAlignment = ((Image)itemInGrid).VerticalAlignment;
+                    ((Image)newItem).Source = ((Image)itemInGrid).Source;
                 }
 
                 gridCopy.Children.Add(newItem);
