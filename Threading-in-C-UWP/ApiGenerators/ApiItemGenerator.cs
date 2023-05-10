@@ -203,7 +203,6 @@ namespace Threading_in_C_UWP.ApiGenerators
                 }
                 catch (SqliteException ex)
                 {
-                    Debug.WriteLine("An error occurred while inserting data: " + ex.Message);
                 }
             }
 

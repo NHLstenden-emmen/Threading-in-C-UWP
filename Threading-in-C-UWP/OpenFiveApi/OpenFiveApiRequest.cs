@@ -11,18 +11,12 @@ namespace Threading_in_C_UWP.OpenFiveApi
 {
     public class OpenFiveApiRequest
     {
-        //public static SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + Windows.ApplicationModel.Package.Current.InstalledLocation.Path.Replace("bin\\Debug", "Datasets\\DungeonDB.mdf;Integrated Security=True"));
         public static SqliteConnection con = new SqliteConnection($"Filename={Path.Combine(ApplicationData.Current.LocalFolder.Path, "DungeonDB.db")}");
         private readonly OpenFiveApiUrlBuilder urlBuilder;
 
         public OpenFiveApiRequest()
         {
             urlBuilder = new OpenFiveApiUrlBuilder();
-
-            //ApplicationData.Current.LocalFolder.CreateFileAsync("userData.db", CreationCollisionOption.OpenIfExists);
-            //string pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, "userdData.db");
-            //con = new SqliteConnection($"Filename={pathToDB}");
-            //Debug.WriteLine("constructur");
         }
 
         public string GetEndpointUrl(string endpoint)

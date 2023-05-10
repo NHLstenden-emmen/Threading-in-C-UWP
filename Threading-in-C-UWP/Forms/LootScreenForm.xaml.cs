@@ -94,7 +94,6 @@ namespace Threading_in_C_UWP.Forms
                 }
                 catch (SqliteException e)
                 {
-                    Debug.WriteLine("Retrieve items from database " + e.ToString());
                 }
             }
 
@@ -146,7 +145,6 @@ namespace Threading_in_C_UWP.Forms
                     }
                     catch (SqliteException e)
                     {
-                        Debug.WriteLine("ItemExistsInDatabase" + e.ToString());
                         return false;
                     }
                 }

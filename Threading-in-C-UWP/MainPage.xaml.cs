@@ -109,9 +109,8 @@ namespace Threading_in_C_UWP
             int thisViewId;
             int newViewId = 0;
             var current = Window.Current;
-            if (outputDevices[1] is null)
+            if (outputDevices.Count <= 1)
             {
-                Debug.WriteLine("No second screen");
                 ContentDialog lootItemDialog = new ContentDialog()
                 {
                     Title = "No second screen found!",
@@ -120,8 +119,8 @@ namespace Threading_in_C_UWP
                 };
                 await lootItemDialog.ShowAsync();
                 CoreApplication.Exit();
+                return;
             }
-            Debug.WriteLine("second screen found");
             DeviceInformation showDevice = outputDevices[1];
             thisViewId = ApplicationView.GetForCurrentView().Id;
             CoreApplicationView playerboardView = CoreApplication.CreateNewView();
@@ -137,12 +136,6 @@ namespace Threading_in_C_UWP
             });
             await ProjectionManager.StartProjectingAsync(newViewId, thisViewId, showDevice);
             int view = ApplicationView.GetForCurrentView().Id;
-            Debug.WriteLine("current" + ApplicationView.GetForCurrentView().Id);
-            Debug.WriteLine("old" + thisViewId);
-            Debug.WriteLine("Nieuw" + newViewId);
-            Debug.WriteLine("current" + current);
-            Debug.WriteLine("Views" + CoreApplication.Views);
-            Debug.WriteLine("playerboardView" + playerboardView);
         }
 
         private void AddTurn()

@@ -64,7 +64,6 @@ namespace Threading_in_C_UWP.Forms
 
         public Placeable[,] generateRandomMap()
         {
-            Debug.WriteLine("Generating map");
             ThreadLocal<Random> rand = new ThreadLocal<Random>(() => new Random());
             Random rnd = rand.Value;
             Placeable[,] map = new Placeable[PlayerBoard.instance.gridheight, PlayerBoard.instance.gridwidth];
@@ -139,10 +138,8 @@ namespace Threading_in_C_UWP.Forms
             waitThread.Start();
             waitThread.Join();
 
-            Debug.WriteLine("Amount selected: " + AmountOfMaps.SelectedIndex);
             for (int mapId = 0; mapId < AmountOfMaps.SelectedIndex + 1; mapId++)
             {
-                Debug.WriteLine("mapID: " + mapId);
                 fillDisplayMap(richTextBoxes[mapId], mapList[mapId]);
             }
         }
