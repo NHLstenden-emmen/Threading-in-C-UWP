@@ -54,7 +54,7 @@ namespace Threading_in_C_UWP.ApiGenerators
             string name = (string)enemyJson["name"];
 
             int health = (int)enemyJson["hit_points"];
-            int movement = (int)enemyJson["speed"]["walk"];
+            int movement = (int)Math.Floor((Decimal)enemyJson["speed"]["walk"] / 10);
 
             int strength = (int)enemyJson["strength"];
             int dexterity = (int)enemyJson["dexterity"];

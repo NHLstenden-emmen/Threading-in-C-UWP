@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using Threading_in_C_UWP.Board.placeable;
 
 namespace Threading_in_C_UWP.Players
 {
     [XmlInclude(typeof(Enemy))]
+    [XmlInclude(typeof(NPC))]
     public class Entity : Moveable
     {
         [XmlElement("Name")]

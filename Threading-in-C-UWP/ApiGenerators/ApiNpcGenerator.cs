@@ -121,7 +121,7 @@ namespace Threading_in_C_UWP.ApiGenerators
 
             // Acceses the results, first or default is a LING method to search the array for an object with an equal name to the selected race           
             var raceObject = parsedResponse["results"].FirstOrDefault(r => (string)r["name"] == selectedRace);
-            var speed = (int)(raceObject?["speed"]["walk"] ?? 20);
+            var speed = (int)Math.Floor((Decimal)(raceObject?["speed"]["walk"] ?? 20) / 10);
             var traits = new List<string>();
 
             // It can take a while to get all the traits, maybe implement waiting functionality

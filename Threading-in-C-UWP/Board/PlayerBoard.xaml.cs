@@ -154,7 +154,7 @@ namespace Threading_in_C_UWP.Board
 
         private async void boardClick(object sender, RoutedEventArgs e)
         {
-            if (MapScreenForm.instance == null || !MapScreenForm.instance.isMasterOverrideText())
+            if (MapScreenForm.instance == null || !await MapScreenForm.instance.isMasterOverrideText())
             {
                 //catch off any sender object that is not a button
                 if (!(sender is Button))

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
+using System.Threading.Tasks;
 using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Board.placeable;
 using Threading_in_C_UWP.Players;
+using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -44,17 +47,21 @@ namespace Threading_in_C_UWP.Forms
             AmountOfMaps.SelectedIndex = 0;
         }
 
-        public bool isMasterOverrideText()
+        public async Task<bool> isMasterOverrideText()
         {
-            
-            if (masterOverrideCheckbox.IsChecked == null || masterOverrideCheckbox.IsChecked == false)
+            bool value = false;
+            await CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+                if (masterOverrideCheckbox.IsChecked == null || masterOverrideCheckbox.IsChecked == false)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = true;
+                }
+            });
+            return value;
         }
 
         private async void obstacleButton_Click(object sender, RoutedEventArgs e)
