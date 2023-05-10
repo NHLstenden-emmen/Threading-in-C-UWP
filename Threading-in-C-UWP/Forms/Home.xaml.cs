@@ -1,19 +1,13 @@
 ﻿using Microsoft.Data.Sqlite;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Xml;
 using Threading_in_C_UWP.ApiGenerators;
 using Threading_in_C_UWP.OpenFiveApi;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -36,7 +30,6 @@ namespace Threading_in_C_UWP.Forms
 
         public Home()
         {
-            //TODO snap to left side of screen
             InitializeComponent();
             InitateComboBoxes();
             UpdateComboBoxValue();
@@ -88,15 +81,6 @@ namespace Threading_in_C_UWP.Forms
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-
-        internal void ChangeLocation(int selectedScreen)
-        {
-            //Change form to normal, move form to different screen return to maximized mode.
-            //this is needed because you can't move a form while it is maximized
-            //WindowState = FormWindowState.Normal;
-            //this.Location = Screen.AllScreens[selectedScreen].WorkingArea.Location;
-        }
 
         private void btnRollDice_Click(object sender, RoutedEventArgs e)
         {
@@ -211,7 +195,7 @@ namespace Threading_in_C_UWP.Forms
             else if (createdGroupBoxes < 8)
             {
                 // Right row
-                gridCopy.Margin = new Thickness(ComboboxGrid1.Margin.Left + 400, ComboboxGrid1.Margin.Top + 130 * (createdGroupBoxes - 4), ComboboxGrid1.Margin.Right - 400, ComboboxGrid1.Margin.Bottom - 130 * (createdGroupBoxes - 4));
+                gridCopy.Margin = new Thickness(ComboboxGrid1.Margin.Left + 450, ComboboxGrid1.Margin.Top + 130 * (createdGroupBoxes - 4), ComboboxGrid1.Margin.Right - 400, ComboboxGrid1.Margin.Bottom - 130 * (createdGroupBoxes - 4));
             }
             else
             {

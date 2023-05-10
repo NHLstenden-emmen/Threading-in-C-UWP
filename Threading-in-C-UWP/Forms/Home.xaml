@@ -27,7 +27,7 @@
             <Image HorizontalAlignment="Left" Height="30" Margin="210,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D20.png"/>
             <Image HorizontalAlignment="Left" Height="30" Margin="250,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D100.png"/>
         </Grid>
-        <RichEditBox Name="RichEditBox" Height="550" Width="140" Margin="410,312,410,218"/>
+        <RichEditBox Name="RichEditBox" Height="550" Width="140" Margin="410,312,0,218" HorizontalAlignment="Left"/>
         <Button Name="btnRollDice" Content="Roll Dice" Margin="0,910,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.559,2.87" HorizontalAlignment="Center" Height="32" Click="btnRollDice_Click"/>
         <Button Name="btnAddNewDiceRoll" Content="Add new group" Margin="0,960,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.559,2.87" HorizontalAlignment="Center" Height="32" Click="btnAddNewDiceRoll_Click"/>
     </Grid>

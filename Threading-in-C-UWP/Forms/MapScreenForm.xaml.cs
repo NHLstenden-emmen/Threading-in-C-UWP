@@ -210,7 +210,9 @@ namespace Threading_in_C_UWP.Forms
             foreach (RichEditBox textBox in richTextBoxes)
             {
                 textBox.Tag = null;
-                //textBox.Document.SetText(Windows.UI.Text.TextSetOptions.None, "");
+                textBox.IsReadOnly = false;
+                textBox.Document.SetText(Windows.UI.Text.TextSetOptions.None, "");
+                textBox.IsReadOnly = true;
             }
         }
 

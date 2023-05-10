@@ -29,7 +29,6 @@ namespace Threading_in_C_UWP.ApiGenerators
             using (SqliteCommand command = new SqliteCommand(CreateTableSql, OpenFiveApiRequest.con))
             {
                 SqliteDataReader reader = command.ExecuteReader();
-                Debug.WriteLine(reader.ToString());
             }
             OpenFiveApiRequest.con.Close();
         }

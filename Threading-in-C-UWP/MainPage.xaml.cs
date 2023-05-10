@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Forms;
 using Windows.ApplicationModel.Core;
@@ -108,6 +109,19 @@ namespace Threading_in_C_UWP
             int thisViewId;
             int newViewId = 0;
             var current = Window.Current;
+            if (outputDevices[1] is null)
+            {
+                Debug.WriteLine("No second screen");
+                ContentDialog lootItemDialog = new ContentDialog()
+                {
+                    Title = "No second screen found!",
+                    Content = "Please open the application again while having a second monitor connected",
+                    CloseButtonText = "Close Application"
+                };
+                await lootItemDialog.ShowAsync();
+                CoreApplication.Exit();
+            }
+            Debug.WriteLine("second screen found");
             DeviceInformation showDevice = outputDevices[1];
             thisViewId = ApplicationView.GetForCurrentView().Id;
             CoreApplicationView playerboardView = CoreApplication.CreateNewView();
