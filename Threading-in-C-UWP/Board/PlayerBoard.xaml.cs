@@ -43,16 +43,6 @@ namespace Threading_in_C_UWP.Board
             Debug.WriteLine("playerBoardView" + playerBoardView);
             this.InitializeComponent();
             PlayerBoard.instance = this;
-            this.initiateBasicSetup();
-        }
-        internal void ChangeLocation(int selectedScreen)
-        {
-            //Change form to normal, move form to different screen return to maximized mode.
-            //this is needed because you can't move a form while it is maximized
-            // TODO write change location
-            //WindowState = FormWindowState.Normal;
-            //this.Location = Screen.AllScreens[selectedScreen].WorkingArea.Location;
-            //WindowState = FormWindowState.Maximized;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -116,23 +106,26 @@ namespace Threading_in_C_UWP.Board
         }
 
         //updates the drawables on all tiles
-        public void updateBoard()
+        public async Task updateBoard()
         {
-            for (int i = 0; i < gridheight; i++)
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                for (int j = 0; j < gridwidth; j++)
+                for (int i = 0; i < gridheight; i++)
                 {
-                    Tile tile = (Tile)tileArray[i, j].Tag;
-                    if (tile.getPlaceable() == null)
+                    for (int j = 0; j < gridwidth; j++)
                     {
-                        tileArray[i, j].Content = "";
-                    }
-                    else
-                    {
-                        tileArray[i, j].Content = tile.getPlaceable().getDrawAble();
+                        Tile tile = (Tile)tileArray[i, j].Tag;
+                        if (tile.getPlaceable() == null)
+                        {
+                            tileArray[i, j].Content = "";
+                        }
+                        else
+                        {
+                            tileArray[i, j].Content = tile.getPlaceable().getDrawAble();
+                        }
                     }
                 }
-            }
+            });
 
             foreach (Button button in tileArray)
             {
@@ -161,7 +154,7 @@ namespace Threading_in_C_UWP.Board
         }
 
 
-        private void boardClick(object sender, RoutedEventArgs e)
+        private async void boardClick(object sender, RoutedEventArgs e)
         {
             if (MapScreenForm.instance == null || !MapScreenForm.instance.isMasterOverrideText())
             {
@@ -247,10 +240,10 @@ namespace Threading_in_C_UWP.Board
                 selectedButton = null;
             }
 
-            updateBoard();
+            await updateBoard();
         }
 
-        public void initiateBasicSetup()
+        public async Task initiateBasicSetup()
         {
             // Get the selected screen
             
@@ -269,7 +262,7 @@ namespace Threading_in_C_UWP.Board
             Tile tile3 = (Tile)tileArray[5, 4].Tag;
             tile3.setPlaceable(new Obstacle("Tree"));
 
-            updateBoard();
+            await updateBoard();
         }
 
         private List<Tile> getAllPosibleMoves(Moveable moveable, Tile location)
@@ -394,9 +387,9 @@ namespace Threading_in_C_UWP.Board
             }
         }
 
-        public async void placePlaceableOnPossibleTile(Placeable placeable)
+        public async Task placePlaceableOnPossibleTile(Placeable placeable)
         {
-            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
                 foreach (Button button in tileArray)
                 {
@@ -404,7 +397,7 @@ namespace Threading_in_C_UWP.Board
                     if (tile.getPlaceable() == null)
                     {
                         tile.setPlaceable(placeable);
-                        updateBoard();
+                        await updateBoard();
                         return;
                     }
                 }
@@ -547,10 +540,7 @@ namespace Threading_in_C_UWP.Board
                 });
             }
 
-            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                updateBoard();
-            });
+            updateBoard();
         }
 
         public async Task<List<Player>> getPlayers()
@@ -574,7 +564,7 @@ namespace Threading_in_C_UWP.Board
 
         public async void removeEntity(Entity entity)
         {
-            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            await playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
                 foreach (Button button in tileArray)
                 {
@@ -582,7 +572,7 @@ namespace Threading_in_C_UWP.Board
                     if (tile.getPlaceable() != null && tile.getPlaceable().GetType() == entity.GetType() && tile.getPlaceable() == entity)
                     {
                         tile.setPlaceable(null);
-                        updateBoard();
+                        await updateBoard();
                         return;
                     };
                 }
@@ -598,6 +588,11 @@ namespace Threading_in_C_UWP.Board
                 CloseButtonText = "Ok"
             };
             await lootItemDialog.ShowAsync();
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            await initiateBasicSetup();
         }
     }
 }

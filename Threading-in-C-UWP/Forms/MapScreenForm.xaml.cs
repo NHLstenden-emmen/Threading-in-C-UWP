@@ -6,6 +6,7 @@ using System.Threading;
 using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Board.placeable;
 using Threading_in_C_UWP.Players;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -172,7 +173,7 @@ namespace Threading_in_C_UWP.Forms
             richTextBox.IsReadOnly = true;
         }
 
-        private void SelectMap(object sender, RoutedEventArgs e)
+        private async void SelectMap(object sender, RoutedEventArgs e)
         {
             RichEditBox richTextBox = sender as RichEditBox;
             if (richTextBox.Tag == null)
@@ -182,25 +183,28 @@ namespace Threading_in_C_UWP.Forms
 
             Placeable[,] map = (Placeable[,])richTextBox.Tag;
 
-            for (int i = 0; i < PlayerBoard.instance.gridheight; i++)
+            await PlayerBoard.playerBoardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                for (int j = 0; j < PlayerBoard.instance.gridwidth; j++)
+                for (int i = 0; i < PlayerBoard.instance.gridheight; i++)
                 {
-                    Tile tile = (Tile)PlayerBoard.instance.tileArray[i, j].Tag;
+                    for (int j = 0; j < PlayerBoard.instance.gridwidth; j++)
+                    {
+                        Tile tile = (Tile)PlayerBoard.instance.tileArray[i, j].Tag;
 
-                    if (map[i, j] != null)
-                    {
-                        checkForPlayer(PlayerBoard.instance.tileArray, map, i, j);
-                    }
-                    else
-                    {
-                        if (tile.getPlaceable() == null || tile.getPlaceable().GetType() != typeof(Player))
+                        if (map[i, j] != null)
                         {
-                            tile.setPlaceable(null);
+                            checkForPlayer(PlayerBoard.instance.tileArray, map, i, j);
+                        }
+                        else
+                        {
+                            if (tile.getPlaceable() == null || tile.getPlaceable().GetType() != typeof(Player))
+                            {
+                                tile.setPlaceable(null);
+                            }
                         }
                     }
                 }
-            }
+            });
 
             PlayerBoard.instance.updateBoard();
             foreach (RichEditBox textBox in richTextBoxes)
