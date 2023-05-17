@@ -109,7 +109,7 @@ namespace Threading_in_C_UWP
             int thisViewId;
             int newViewId = 0;
             var current = Window.Current;
-            if (outputDevices.Count <= 1)
+            if (outputDevices.Count <= 0) // TODO change to 1
             {
                 ContentDialog lootItemDialog = new ContentDialog()
                 {
@@ -121,7 +121,7 @@ namespace Threading_in_C_UWP
                 CoreApplication.Exit();
                 return;
             }
-            DeviceInformation showDevice = outputDevices[1];
+            DeviceInformation showDevice = outputDevices[0]; // TODO change to 1
             thisViewId = ApplicationView.GetForCurrentView().Id;
             CoreApplicationView playerboardView = CoreApplication.CreateNewView();
             await playerboardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>

@@ -190,12 +190,12 @@ namespace Threading_in_C_UWP.Forms
             if (createdGroupBoxes < 4)
             {
                 // Left row
-                gridCopy.Margin= new Thickness(ComboboxGrid1.Margin.Left, ComboboxGrid1.Margin.Top + 130 * createdGroupBoxes, ComboboxGrid1.Margin.Right, ComboboxGrid1.Margin.Bottom) ;
+                gridCopy.Margin= new Thickness(ComboboxGrid1.Margin.Left, ComboboxGrid1.Margin.Top + 150 * createdGroupBoxes, ComboboxGrid1.Margin.Right, ComboboxGrid1.Margin.Bottom) ;
             }
             else if (createdGroupBoxes < 8)
             {
                 // Right row
-                gridCopy.Margin = new Thickness(ComboboxGrid1.Margin.Left + 450, ComboboxGrid1.Margin.Top + 130 * (createdGroupBoxes - 4), ComboboxGrid1.Margin.Right - 400, ComboboxGrid1.Margin.Bottom - 130 * (createdGroupBoxes - 4));
+                gridCopy.Margin = new Thickness(ComboboxGrid1.Margin.Left + 550, ComboboxGrid1.Margin.Top + 150 * (createdGroupBoxes - 4), ComboboxGrid1.Margin.Right - 400, ComboboxGrid1.Margin.Bottom - 150 * (createdGroupBoxes - 4));
             }
             else
             {

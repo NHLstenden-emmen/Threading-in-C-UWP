@@ -43,16 +43,16 @@ namespace Threading_in_C_UWP.Forms
             {
                 if (item.GetType() == typeof(ComboBox))
                 {
-                    
                     ComboBox comboBox = (ComboBox)item;
-                    for (int i = 0; i <= 20; i++)
+                    for (int i = 0; i <= 30; i++)
                     {
                         comboBox.Items.Add(i);
                     }
                     comboBox.SelectedIndex = 0;
                 }
             }
-            for (int i = 21; i <= 30; i++)
+            InputLevel.Items.Clear();
+            for (int i = 1; i <= 20; i++)
             {
                 InputLevel.Items.Add(i);
             }

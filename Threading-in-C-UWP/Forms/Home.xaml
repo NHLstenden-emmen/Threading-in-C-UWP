@@ -9,26 +9,26 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Name="HomeGrid">
-        <Image HorizontalAlignment="Center" Height="100" Margin="0,104,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/tempLogo.png"/>
-        <Grid Name="ComboboxGrid1" Height="140" Width="290" Margin="105,312,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Image HorizontalAlignment="Left" Height="100" Margin="430,100,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/tempLogo.png"/>
+        <Grid Name="ComboboxGrid1" Height="140" Width="360" Margin="30,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBox Name="comboBoxDiceRoll1" Width="120" HorizontalAlignment="Center" Margin="0,10,0,0"/>
-            <ComboBox Name="comboBoxD4Roll1" Tag="4" Margin="10,100,0,0" Height="30" Width="30"/>
-            <ComboBox Name="comboBoxD6Roll1" Tag="6" Margin="50,100,0,0" Height="30" Width="30"/>
-            <ComboBox Name="comboBoxD8Roll1" Tag="8" Margin="90,100,0,0" Height="30" Width="30"/>
-            <ComboBox Name="comboBoxD10Roll1" Tag="10" Margin="130,100,0,0" Height="30" Width="30"/>
-            <ComboBox Name="comboBoxD12Roll1" Tag="12" Margin="170,100,0,0" Height="30" Width="30"/>
-            <ComboBox Name="comboBoxD20Roll1" Tag="20" Margin="210,100,0,0" Height="30" Width="30"/>
-            <ComboBox Name="comboBoxD100Roll1" Tag="100" Margin="250,100,0,0" Height="30" Width="30"/>
-            <Image HorizontalAlignment="Left" Height="30" Margin="10,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D4.png"/>
-            <Image HorizontalAlignment="Left" Height="30" Margin="50,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D6.png"/>
-            <Image HorizontalAlignment="Left" Height="30" Margin="90,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D8.png"/>
-            <Image HorizontalAlignment="Left" Height="30" Margin="130,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D10.png"/>
-            <Image HorizontalAlignment="Left" Height="30" Margin="170,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D12.png"/>
-            <Image HorizontalAlignment="Left" Height="30" Margin="210,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D20.png"/>
-            <Image HorizontalAlignment="Left" Height="30" Margin="250,65,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D100.png"/>
+            <ComboBox Name="comboBoxD4Roll1" Tag="4" Margin="10,36,0,0" Height="30" Width="60" />
+            <ComboBox Name="comboBoxD6Roll1" Tag="6" Margin="290,36,0,0" Height="30" Width="60"/>
+            <ComboBox Name="comboBoxD8Roll1" Tag="8" Margin="10,107,0,0" Height="30" Width="60"/>
+            <ComboBox Name="comboBoxD10Roll1" Tag="10" Margin="80,107,0,0" Height="30" Width="60" />
+            <ComboBox Name="comboBoxD12Roll1" Tag="12" Margin="150,107,0,0" Height="30" Width="60"/>
+            <ComboBox Name="comboBoxD20Roll1" Tag="20" Margin="220,107,0,0" Height="30" Width="60"/>
+            <ComboBox Name="comboBoxD100Roll1" Tag="100" Margin="290,107,0,0" Height="30" Width="60"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="30,0,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D4.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="310,1,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D6.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="30,70,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D8.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="100,70,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D10.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="170,70,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D12.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="240,70,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D20.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="310,70,0,0" VerticalAlignment="Top" Width="30" Source="/Assets/Dice/D100.png"/>
         </Grid>
-        <RichEditBox Name="RichEditBox" Height="550" Width="140" Margin="410,312,0,218" HorizontalAlignment="Left"/>
-        <Button Name="btnRollDice" Content="Roll Dice" Margin="0,910,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.559,2.87" HorizontalAlignment="Center" Height="32" Click="btnRollDice_Click"/>
-        <Button Name="btnAddNewDiceRoll" Content="Add new group" Margin="0,960,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.559,2.87" HorizontalAlignment="Center" Height="32" Click="btnAddNewDiceRoll_Click"/>
+        <RichEditBox Name="RichEditBox" Height="550" Width="140" Margin="410,220,0,230" HorizontalAlignment="Left"/>
+        <Button Name="btnRollDice" Content="Roll Dice" Margin="440,780,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.559,2.87" Height="32" Click="btnRollDice_Click"/>
+        <Button Name="btnAddNewDiceRoll" Content="Add new group" Margin="420,830,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.559,2.87" Height="32" Click="btnAddNewDiceRoll_Click"/>
     </Grid>
 </Page>
