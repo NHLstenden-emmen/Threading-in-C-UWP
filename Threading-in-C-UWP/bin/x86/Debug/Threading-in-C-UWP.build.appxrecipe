@@ -149,26 +149,26 @@
     <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Board\PlayerBoard.xbf">
       <PackagePath>Board\PlayerBoard.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\Home.xbf">
-      <PackagePath>Forms\Home.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Pages\Home.xbf">
+      <PackagePath>Pages\Home.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\LootScreenForm.xbf">
-      <PackagePath>Forms\LootScreenForm.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Pages\LootScreenPage.xbf">
+      <PackagePath>Pages\LootScreenPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MapScreenForm.xbf">
-      <PackagePath>Forms\MapScreenForm.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Pages\MapScreenPage.xbf">
+      <PackagePath>Pages\MapScreenPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\MonstersScreenForm.xbf">
-      <PackagePath>Forms\MonstersScreenForm.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Pages\MonstersScreenPage.xbf">
+      <PackagePath>Pages\MonstersScreenPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\NpcScreenForm.xbf">
-      <PackagePath>Forms\NpcScreenForm.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Pages\NpcScreenPage.xbf">
+      <PackagePath>Pages\NpcScreenPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\PlayerScreenForm.xbf">
-      <PackagePath>Forms\PlayerScreenForm.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Pages\PlayerScreenPage.xbf">
+      <PackagePath>Pages\PlayerScreenPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Forms\SettingsScreenForm.xbf">
-      <PackagePath>Forms\SettingsScreenForm.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\Pages\SettingsScreenPage.xbf">
+      <PackagePath>Pages\SettingsScreenPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
