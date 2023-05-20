@@ -10,19 +10,14 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Threading_in_C_UWP.Forms
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MonstersScreenForm : Page
     {
         private List<Enemy> enemies = new List<Enemy>();
         private int numThreads = 0;
         private Mutex dbMutex = new Mutex();
-        ApiEnemyGenerator apiEnemyGenerator;
+        private ApiEnemyGenerator apiEnemyGenerator;
 
         public MonstersScreenForm()
         {

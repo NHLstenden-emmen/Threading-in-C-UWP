@@ -9,23 +9,18 @@ using Threading_in_C_UWP.OpenFiveApi;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Threading_in_C_UWP.Forms
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Home : Page
     {
         private readonly OpenFiveApiRequest apiRequest = new OpenFiveApiRequest();
         private ApiEnemyGenerator apiEnemyGenerator = new ApiEnemyGenerator();
         private ApiNpcGenerator apiNpcGenerator = new ApiNpcGenerator();
         private ApiItemGenerator apiItemGenerator = new ApiItemGenerator();
-        int createdGroupBoxes = 1;
-        Random rand = new Random();
-        Dictionary<string, Dictionary<string, List<int>>> rollValues = new Dictionary<string, Dictionary<string, List<int>>>();
-        List<Thread> threads = new List<Thread>();
+        private int createdGroupBoxes = 1;
+        private Random rand = new Random();
+        private Dictionary<string, Dictionary<string, List<int>>> rollValues = new Dictionary<string, Dictionary<string, List<int>>>();
+        private List<Thread> threads = new List<Thread>();
 
 
         public Home()

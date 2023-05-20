@@ -1,9 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Threading_in_C_UWP.Board.placeable;
@@ -13,7 +10,6 @@ using Threading_in_C_UWP.Players;
 using Windows.ApplicationModel.Core;
 using Windows.Storage.Pickers;
 using Windows.UI.Core;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -21,20 +17,15 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using static Threading_in_C_UWP.Converters.TileConverter;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Threading_in_C_UWP.Board
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class PlayerBoard : Page
     {
         public Button[,] tileArray;
         public int gridheight = 9;
         public int gridwidth = 16;
-        int tileSize = 80;
-        Button selectedButton = null;
+        private int tileSize = 80;
+        private Button selectedButton = null;
         public static PlayerBoard instance;
         public static CoreApplicationView playerBoardView;
         public PlayerBoard()

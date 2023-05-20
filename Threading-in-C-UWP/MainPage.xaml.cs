@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using Threading_in_C_UWP.Board;
 using Threading_in_C_UWP.Forms;
 using Windows.ApplicationModel.Core;
@@ -10,19 +8,12 @@ using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
-using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Threading_in_C_UWP
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         private int turnCounter;
@@ -97,19 +88,12 @@ namespace Threading_in_C_UWP
 
         private async void StartPlayerboard()
         {
-        //    AppWindow appWindow = await AppWindow.TryCreateAsync();
-        //    Frame appWindowContentFrame = new Frame();
-        //    appWindowContentFrame.Navigate(typeof(PlayerBoard));
-        //    ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
-        //    appWindow.Presenter.RequestPresentation(AppWindowPresentationKind.FullScreen);
-
-
             String projectorSelectorQuery = ProjectionManager.GetDeviceSelector();
             var outputDevices = await DeviceInformation.FindAllAsync(projectorSelectorQuery);
             int thisViewId;
             int newViewId = 0;
             var current = Window.Current;
-            if (outputDevices.Count <= 0) // TODO change to 1
+            if (outputDevices.Count <= 1)
             {
                 ContentDialog lootItemDialog = new ContentDialog()
                 {
@@ -121,7 +105,7 @@ namespace Threading_in_C_UWP
                 CoreApplication.Exit();
                 return;
             }
-            DeviceInformation showDevice = outputDevices[0]; // TODO change to 1
+            DeviceInformation showDevice = outputDevices[1];
             thisViewId = ApplicationView.GetForCurrentView().Id;
             CoreApplicationView playerboardView = CoreApplication.CreateNewView();
             await playerboardView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
