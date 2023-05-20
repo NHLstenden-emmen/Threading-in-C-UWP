@@ -17,7 +17,7 @@ namespace Threading_in_C_UWP.Forms
         private List<NPC> npcs = new List<NPC>();
         private int numThreads = 0;
         private Mutex dbMutex = new Mutex();
-        ApiNpcGenerator apiNpcGenerator = new ApiNpcGenerator();
+        private ApiNpcGenerator apiNpcGenerator = new ApiNpcGenerator();
 
         public NpcScreenForm()
         {
