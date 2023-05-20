@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="Threading_in_C_UWP.Forms.MapScreenForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Threading_in_C_UWP.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Width="960">
+        <Button Name="button2" Content="Generate"  VerticalAlignment="Top" Margin="547,40,0,0" Click="GenerateItemButton_Click"/>
+        <ComboBox x:Name="AmountOfMaps" HorizontalAlignment="Left" Margin="476,40,0,0" Text="1" VerticalAlignment="Top"/>
+        <CheckBox Name="masterOverrideCheckbox" Content="Master Override" Margin="713,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.051,1.477"/>
+        <TextBox Name="objectNameBox" HorizontalAlignment="Left" Margin="103,40,0,0" TextWrapping="Wrap" Text="Obstacle Name" VerticalAlignment="Top" RenderTransformOrigin="0.483,-0.391"/>
+        <Button Name="obstacleButton" Content="Place Obstacle" Margin="227,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.636,-1.435" Click="obstacleButton_Click"/>
+        <Grid Margin="0,100,0,0">
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="60,100,710,690" Name="MapExampleOne"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="385,100,385,690" Name="MapExampleTwo"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="710,100,60,690" Name="MapExampleThree"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="60,395,710,395" Name="MapExampleFour"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="385,395,385,395" Name="MapExampleFive"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="710,395,60,395" Name="MapExampleSix"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="60,690,710,100" Name="MapExampleSeven"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="385,690,385,100" Name="MapExampleEight"/>
+            <RichEditBox IsReadOnly="True" Height="190" Width="190" SelectionChanged="SelectMap" Margin="710,690,60,100" Name="MapExampleNine"/>
+        </Grid>
+    </Grid>
+</Page>

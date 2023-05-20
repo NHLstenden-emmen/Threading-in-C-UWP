@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-16"?><TileList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Player">
+    <Name>Roan</Name>
+    <Health>100</Health>
+    <Movement>2</Movement>
+    <Strength>10</Strength>
+    <Dexterity>10</Dexterity>
+    <Constitution>10</Constitution>
+    <Intelligence>10</Intelligence>
+    <Wisdom>10</Wisdom>
+    <Charisma>10</Charisma>
+    <AR>10</AR>
+    <BP>10</BP>
+    <Class>Dragonling</Class>
+    <PlayerIndex>1</PlayerIndex>
+  </Placeable>
+  <x>2</x>
+  <y>2</y>
+</Tile>
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Player">
+    <Name>Simchaja</Name>
+    <Health>100</Health>
+    <Movement>2</Movement>
+    <Strength>10</Strength>
+    <Dexterity>10</Dexterity>
+    <Constitution>10</Constitution>
+    <Intelligence>10</Intelligence>
+    <Wisdom>10</Wisdom>
+    <Charisma>10</Charisma>
+    <AR>10</AR>
+    <BP>10</BP>
+    <Class>Dragonling</Class>
+    <PlayerIndex>1</PlayerIndex>
+  </Placeable>
+  <x>1</x>
+  <y>0</y>
+</Tile>
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Player">
+    <Name>Daan</Name>
+    <Health>100</Health>
+    <Movement>2</Movement>
+    <Strength>10</Strength>
+    <Dexterity>10</Dexterity>
+    <Constitution>10</Constitution>
+    <Intelligence>10</Intelligence>
+    <Wisdom>10</Wisdom>
+    <Charisma>10</Charisma>
+    <AR>10</AR>
+    <BP>10</BP>
+    <Class>Dragonling</Class>
+    <PlayerIndex>1</PlayerIndex>
+  </Placeable>
+  <x>2</x>
+  <y>0</y>
+</Tile>
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Player">
+    <Name>Kevin</Name>
+    <Health>100</Health>
+    <Movement>2</Movement>
+    <Strength>10</Strength>
+    <Dexterity>10</Dexterity>
+    <Constitution>10</Constitution>
+    <Intelligence>10</Intelligence>
+    <Wisdom>10</Wisdom>
+    <Charisma>10</Charisma>
+    <AR>10</AR>
+    <BP>10</BP>
+    <Class>Dragonling</Class>
+    <PlayerIndex>1</PlayerIndex>
+  </Placeable>
+  <x>3</x>
+  <y>0</y>
+</Tile>
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Player">
+    <Name>Yaell</Name>
+    <Health>100</Health>
+    <Movement>2</Movement>
+    <Strength>10</Strength>
+    <Dexterity>10</Dexterity>
+    <Constitution>10</Constitution>
+    <Intelligence>10</Intelligence>
+    <Wisdom>10</Wisdom>
+    <Charisma>10</Charisma>
+    <AR>10</AR>
+    <BP>10</BP>
+    <Class>Dragonling</Class>
+    <PlayerIndex>1</PlayerIndex>
+  </Placeable>
+  <x>4</x>
+  <y>0</y>
+</Tile>
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Obstacle">
+    <type>Rock</type>
+  </Placeable>
+  <x>5</x>
+  <y>4</y>
+</Tile>
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Obstacle">
+    <type>Rock</type>
+  </Placeable>
+  <x>5</x>
+  <y>5</y>
+</Tile>
+<Tile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Placeable xsi:type="Obstacle">
+    <type>Rock</type>
+  </Placeable>
+  <x>5</x>
+  <y>6</y>
+</Tile></TileList>

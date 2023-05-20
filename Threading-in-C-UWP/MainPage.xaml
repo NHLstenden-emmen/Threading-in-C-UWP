@@ -9,6 +9,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <NavigationView 
+            x:Name="NavigationView" 
+            PaneDisplayMode="Top" 
+            IsBackButtonVisible="Collapsed"
+            ItemInvoked="NavView_ItemInvoked">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="Home" Content="Home" x:Name="Home" />
+                <NavigationViewItem Tag="TurnCounter" Content="0" x:Name="TurnCounter" />
+                <NavigationViewItem Tag="Players" Content="Players" x:Name="Players" />
+                <NavigationViewItem Tag="Map" Content="Map" x:Name="Map" />
+                <NavigationViewItem Tag="Monsters" Content="Monsters" x:Name="Monsters" />
+                <NavigationViewItem Tag="NPC" Content="NPC's" x:Name="NPC" />
+                <NavigationViewItem Tag="Loot" Content="Loot" x:Name="Loot" />
+            </NavigationView.MenuItems>
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+                   NavigationFailed="ContentFrame_NavigationFailed" Loaded="ContentFrame_Loaded"/>
+            </ScrollViewer>
+        </NavigationView>
     </Grid>
 </Page>

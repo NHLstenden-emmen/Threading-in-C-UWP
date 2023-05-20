@@ -1,0 +1,12 @@
+﻿/ref:"D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\intermediate\PreMergeILTransformed"
+/ref:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.native.sharedlibrary\2.2.8-rel-31116-00\tools\SharedLibrary\ret\AnalysisILToc"
+/ref:"D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\intermediate\PreMergeILTransformed"
+/ref:"D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.native.compiler\2.2.12-rel-31116-00\tools\x86\ilc\lib\Private\\"
+/ref:"D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\in"
+/ref:"D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\in\WinMetadata"
+/ca:System.Private.CoreLib
+/cscpath:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\2.2.12-rel-31116-00\tools\csc"
+/out:"D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\intermediate\SgGenerated\\"
+/int:"D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\intermediate\Threading-in-C-UWP.Sg"
+"@D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\obj\x86\Release\ilc\intermediate\Threading-in-C-UWP.Sg\ComputedSerializationInput.txt"

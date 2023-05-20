@@ -1,1 +1,1 @@
-D:\Programming\Github\Threading-in-C-UWP\Threading-in-C-UWP\Threading-in-C-UWP.csproj;x86
+C:\repos\Threading-in-C-UWP\Threading-in-C-UWP\Threading-in-C-UWP.csproj;x86

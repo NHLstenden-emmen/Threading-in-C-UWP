@@ -116,12 +116,55 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ApiGenerators\ApiEnemyGenerator.cs" />
+    <Compile Include="ApiGenerators\ApiItemGenerator.cs" />
+    <Compile Include="ApiGenerators\ApiNpcGenerator.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Board\placeable\Entities\Character.cs" />
+    <Compile Include="Board\placeable\Entities\Enemy.cs" />
+    <Compile Include="Board\placeable\Entities\Entity.cs" />
+    <Compile Include="Board\placeable\Entities\NPC.cs" />
+    <Compile Include="Board\placeable\Entities\Player.cs" />
+    <Compile Include="Board\placeable\InMovable.cs" />
+    <Compile Include="Board\placeable\Moveable.cs" />
+    <Compile Include="Board\placeable\Obstacle.cs" />
+    <Compile Include="Board\placeable\Placable.cs" />
+    <Compile Include="Board\PlayerBoard.xaml.cs">
+      <DependentUpon>PlayerBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Board\Rooms.cs" />
+    <Compile Include="Board\Tile.cs" />
+    <Compile Include="Converters\EntityConverter.cs" />
+    <Compile Include="Converters\TileConverter.cs" />
+    <Compile Include="Equipment\Item.cs" />
+    <Compile Include="Pages\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LootScreenPage.xaml.cs">
+      <DependentUpon>LootScreenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MapScreenPage.xaml.cs">
+      <DependentUpon>MapScreenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MonstersScreenPage.xaml.cs">
+      <DependentUpon>MonstersScreenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NpcScreenPage.xaml.cs">
+      <DependentUpon>NpcScreenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayerScreenPage.xaml.cs">
+      <DependentUpon>PlayerScreenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsScreenPage.xaml.cs">
+      <DependentUpon>SettingsScreenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OpenFiveApi\OpenFiveApiRequest.cs" />
+    <Compile Include="OpenFiveApi\OpenFiveApiUrlBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +173,27 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Dice\D10.png" />
+    <Content Include="Assets\Dice\D100.png" />
+    <Content Include="Assets\Dice\D12.png" />
+    <Content Include="Assets\Dice\D20.png" />
+    <Content Include="Assets\Dice\D4.png" />
+    <Content Include="Assets\Dice\D6.png" />
+    <Content Include="Assets\Dice\D8.png" />
+    <Content Include="Assets\DnD-Symbol.png" />
+    <Content Include="Assets\magicitemcards_template_front_poker.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\tempLogo.png" />
+    <Content Include="Assets\XML\Default.xml" />
+    <Content Include="Assets\XML\Test.xml" />
+    <Content Include="Datasets\DungeonDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -144,16 +208,55 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Board\PlayerBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LootScreenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MapScreenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MonstersScreenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\NpcScreenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PlayerScreenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SettingsScreenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite">
+      <Version>7.0.5</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

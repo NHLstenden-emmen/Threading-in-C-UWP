@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="Threading_in_C_UWP.Forms.PlayerScreenForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Threading_in_C_UWP.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Name="PlayerGrid">
+        <Image Source="../Assets/magicitemcards_template_front_poker.jpg" HorizontalAlignment="Left" Height="407" Margin="52,62,0,0" VerticalAlignment="Top" Width="290"/>
+        <Image Source="../Assets/DnD-Symbol.png" HorizontalAlignment="Left" Height="130" Margin="82,168,0,0" VerticalAlignment="Top" Width="230"/>
+        <TextBlock Name="LabelName" HorizontalAlignment="Left" Margin="179,72,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Foreground="Black" />
+        <TextBox Name="InputName" HorizontalAlignment="Left" Margin="138,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="#00000000" Width="119" Background="#00000000" Foreground="Black"/>
+        <TextBlock Name="LabelLevel" HorizontalAlignment="Left" Margin="154,129,0,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputLevel" Margin="206,123,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+
+        <TextBlock Name="LabelHealth" HorizontalAlignment="Left" Margin="67,313,0,0" TextWrapping="Wrap" Text="Health" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputHealth" Margin="155,308,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelMovement" HorizontalAlignment="Left" Margin="67,343,0,0" TextWrapping="Wrap" Text="Movement" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputMovement" Margin="155,338,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelStrength" HorizontalAlignment="Left" Margin="67,373,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputStrength" Margin="155,368,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelDexterity" HorizontalAlignment="Left" Margin="67,403,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputDexterity" Margin="155,398,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelArmorRating" HorizontalAlignment="Left" Margin="67,433,0,0" TextWrapping="Wrap" Text="Armor Rating" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputArmorRating" Margin="155,428,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+
+        <TextBlock Name="LabelConstitution" HorizontalAlignment="Left" Margin="197,313,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputConstitution" Margin="285,308,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelIntelligence" HorizontalAlignment="Left" Margin="197,343,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputIntelligence" Margin="285,338,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelWisdom" HorizontalAlignment="Left" Margin="197,373,0,0" TextWrapping="Wrap" Text="Wisdom" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputWisdom" Margin="285,368,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelCharisma" HorizontalAlignment="Left" Margin="197,403,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputCharisma" Margin="285,398,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <TextBlock Name="LabelProficiency" HorizontalAlignment="Left" Margin="197,433,0,0" TextWrapping="Wrap" Text="Proficiency" VerticalAlignment="Top" Foreground="Black"/>
+        <ComboBox Name="InputProficiency" Margin="285,428,0,0" Text="" BorderBrush="#00000000" Width="60" Background="#00000000" Height="30" Foreground="Black"/>
+        <Button x:Name="AddPlayerButton" Content="Register Player" Margin="130,467,0,0" VerticalAlignment="Top" Click="AddPlayerButton_Click"/>
+        
+        <Grid Height="190" Margin="430,72,60,704">
+            <TextBlock x:Name="PlayerOptionalLabel" HorizontalAlignment="Left" Margin="20,-10,0,0" TextWrapping="Wrap" Text="Optional:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="PlayerRaceLabel" HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="Race" VerticalAlignment="Top"/>
+            <TextBox x:Name="InputRace" Margin="20,50,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="#00000000"/>
+            <TextBlock x:Name="PlayerClassLable" HorizontalAlignment="Left" Margin="20,100,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top"/>
+            <TextBox x:Name="InputClass" Margin="20,130,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="#00000000"/>
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="0,0,0,0"/>
+        </Grid>
+        
+        <ListBox x:Name="PlayerListbox" Margin="10,540,10,127" Loaded="PlayerListbox_Loaded"/>
+        <Button x:Name="EditPlayerButton" Content="Edit Player" Margin="31,974,0,0" VerticalAlignment="Top" Click="EditPlayerButton_Click"/>
+        <Button x:Name="RemovePlayerButton" Content="Remove Player" Margin="142,974,0,0" VerticalAlignment="Top" Click="RemovePlayerButton_Click"/>
+        <Button x:Name="CalculateCRButton" Content="Calculate team challange rating" Margin="283,974,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>
